@@ -1,0 +1,4224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_86aa13f1c4401ce72e0d8f26964e55ab {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_86aa13f1c4401ce72e0d8f26964e55ab" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_86aa13f1c4401ce72e0d8f26964e55ab = L.map(
+                "map_86aa13f1c4401ce72e0d8f26964e55ab",
+                {
+                    center: [40.72, -74.04],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f263e6d6ce589af040d7bd3e32ee7f5b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f263e6d6ce589af040d7bd3e32ee7f5b.addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+    var color_map_7d4395a7beecec576bcc1601ac13702a = {};
+
+    
+    color_map_7d4395a7beecec576bcc1601ac13702a.color = d3.scale.threshold()
+              .domain([171.0, 172.31262525050101, 173.625250501002, 174.93787575150301, 176.250501002004, 177.56312625250501, 178.875751503006, 180.18837675350701, 181.50100200400803, 182.81362725450902, 184.12625250501003, 185.43887775551102, 186.75150300601203, 188.06412825651302, 189.37675350701403, 190.68937875751504, 192.00200400801603, 193.31462925851704, 194.62725450901803, 195.93987975951904, 197.25250501002003, 198.56513026052104, 199.87775551102203, 201.19038076152304, 202.50300601202406, 203.81563126252505, 205.12825651302606, 206.44088176352705, 207.75350701402806, 209.06613226452907, 210.37875751503006, 211.69138276553105, 213.00400801603206, 214.31663326653307, 215.62925851703406, 216.94188376753507, 218.25450901803606, 219.56713426853707, 220.8797595190381, 222.19238476953907, 223.5050100200401, 224.81763527054107, 226.1302605210421, 227.4428857715431, 228.7555110220441, 230.06813627254508, 231.3807615230461, 232.6933867735471, 234.0060120240481, 235.3186372745491, 236.6312625250501, 237.9438877755511, 239.25651302605212, 240.5691382765531, 241.8817635270541, 243.1943887775551, 244.50701402805612, 245.81963927855713, 247.13226452905812, 248.4448897795591, 249.75751503006012, 251.07014028056113, 252.38276553106212, 253.6953907815631, 255.00801603206412, 256.32064128256513, 257.63326653306615, 258.94589178356716, 260.2585170340681, 261.57114228456913, 262.88376753507015, 264.19639278557116, 265.5090180360721, 266.82164328657313, 268.13426853707415, 269.44689378757516, 270.7595190380762, 272.07214428857714, 273.38476953907815, 274.69739478957916, 276.0100200400802, 277.32264529058114, 278.63527054108215, 279.94789579158316, 281.2605210420842, 282.5731462925852, 283.8857715430862, 285.19839679358716, 286.5110220440882, 287.8236472945892, 289.13627254509015, 290.44889779559117, 291.7615230460922, 293.0741482965932, 294.3867735470942, 295.6993987975952, 297.0120240480962, 298.3246492985972, 299.6372745490982, 300.94989979959917, 302.2625250501002, 303.5751503006012, 304.8877755511022, 306.2004008016032, 307.51302605210424, 308.82565130260525, 310.1382765531062, 311.4509018036072, 312.7635270541082, 314.0761523046092, 315.3887775551102, 316.7014028056112, 318.01402805611224, 319.32665330661325, 320.63927855711427, 321.9519038076152, 323.26452905811624, 324.5771543086172, 325.8897795591182, 327.2024048096192, 328.51503006012024, 329.82765531062125, 331.14028056112227, 332.4529058116233, 333.76553106212424, 335.07815631262525, 336.3907815631262, 337.7034068136272, 339.01603206412824, 340.32865731462925, 341.64128256513027, 342.9539078156313, 344.2665330661323, 345.57915831663325, 346.89178356713427, 348.2044088176353, 349.51703406813624, 350.82965931863725, 352.14228456913827, 353.4549098196393, 354.7675350701403, 356.0801603206413, 357.3927855711423, 358.7054108216433, 360.0180360721443, 361.33066132264526, 362.64328657314627, 363.9559118236473, 365.2685370741483, 366.5811623246493, 367.8937875751503, 369.20641282565134, 370.5190380761523, 371.8316633266533, 373.14428857715427, 374.4569138276553, 375.7695390781563, 377.0821643286573, 378.3947895791583, 379.70741482965934, 381.02004008016036, 382.3326653306613, 383.6452905811623, 384.9579158316633, 386.2705410821643, 387.5831663326653, 388.89579158316633, 390.20841683366734, 391.52104208416836, 392.83366733466937, 394.14629258517033, 395.45891783567134, 396.77154308617236, 398.0841683366733, 399.39679358717433, 400.70941883767534, 402.02204408817636, 403.3346693386774, 404.6472945891784, 405.9599198396794, 407.27254509018036, 408.5851703406814, 409.89779559118233, 411.21042084168334, 412.52304609218436, 413.8356713426854, 415.1482965931864, 416.4609218436874, 417.7735470941884, 419.0861723446894, 420.3987975951904, 421.71142284569135, 423.02404809619236, 424.3366733466934, 425.6492985971944, 426.9619238476954, 428.2745490981964, 429.5871743486974, 430.8997995991984, 432.2124248496994, 433.5250501002004, 434.8376753507014, 436.1503006012024, 437.4629258517034, 438.7755511022044, 440.08817635270543, 441.4008016032064, 442.7134268537074, 444.0260521042084, 445.33867735470943, 446.65130260521045, 447.9639278557114, 449.2765531062124, 450.58917835671343, 451.90180360721445, 453.2144288577154, 454.5270541082164, 455.83967935871743, 457.15230460921845, 458.46492985971946, 459.7775551102204, 461.09018036072143, 462.40280561122245, 463.71543086172346, 465.0280561122245, 466.34068136272543, 467.65330661322645, 468.96593186372746, 470.2785571142285, 471.59118236472943, 472.90380761523045, 474.21643286573146, 475.5290581162325, 476.8416833667335, 478.15430861723445, 479.46693386773546, 480.7795591182365, 482.0921843687375, 483.40480961923845, 484.71743486973946, 486.0300601202405, 487.3426853707415, 488.6553106212425, 489.96793587174346, 491.2805611222445, 492.5931863727455, 493.9058116232465, 495.2184368737475, 496.5310621242485, 497.8436873747495, 499.1563126252505, 500.4689378757515, 501.7815631262525, 503.0941883767535, 504.4068136272545, 505.7194388777555, 507.03206412825654, 508.3446893787575, 509.6573146292585, 510.9699398797595, 512.2825651302605, 513.5951903807616, 514.9078156312626, 516.2204408817636, 517.5330661322646, 518.8456913827656, 520.1583166332665, 521.4709418837675, 522.7835671342685, 524.0961923847696, 525.4088176352706, 526.7214428857715, 528.0340681362725, 529.3466933867735, 530.6593186372745, 531.9719438877755, 533.2845691382765, 534.5971943887776, 535.9098196392786, 537.2224448897796, 538.5350701402806, 539.8476953907816, 541.1603206412826, 542.4729458917836, 543.7855711422847, 545.0981963927856, 546.4108216432866, 547.7234468937876, 549.0360721442886, 550.3486973947895, 551.6613226452905, 552.9739478957915, 554.2865731462925, 555.5991983967936, 556.9118236472946, 558.2244488977956, 559.5370741482966, 560.8496993987976, 562.1623246492986, 563.4749498997996, 564.7875751503007, 566.1002004008017, 567.4128256513027, 568.7254509018036, 570.0380761523046, 571.3507014028056, 572.6633266533066, 573.9759519038076, 575.2885771543085, 576.6012024048096, 577.9138276553106, 579.2264529058116, 580.5390781563126, 581.8517034068136, 583.1643286573146, 584.4769539078156, 585.7895791583167, 587.1022044088177, 588.4148296593187, 589.7274549098197, 591.0400801603207, 592.3527054108217, 593.6653306613226, 594.9779559118236, 596.2905811623247, 597.6032064128257, 598.9158316633266, 600.2284569138276, 601.5410821643286, 602.8537074148296, 604.1663326653306, 605.4789579158316, 606.7915831663327, 608.1042084168337, 609.4168336673347, 610.7294589178357, 612.0420841683367, 613.3547094188377, 614.6673346693387, 615.9799599198398, 617.2925851703407, 618.6052104208417, 619.9178356713427, 621.2304609218437, 622.5430861723447, 623.8557114228456, 625.1683366733466, 626.4809619238476, 627.7935871743487, 629.1062124248497, 630.4188376753507, 631.7314629258517, 633.0440881763527, 634.3567134268537, 635.6693386773547, 636.9819639278558, 638.2945891783568, 639.6072144288578, 640.9198396793588, 642.2324649298597, 643.5450901803607, 644.8577154308617, 646.1703406813627, 647.4829659318636, 648.7955911823647, 650.1082164328657, 651.4208416833667, 652.7334669338677, 654.0460921843687, 655.3587174348697, 656.6713426853707, 657.9839679358718, 659.2965931863728, 660.6092184368738, 661.9218436873748, 663.2344689378758, 664.5470941883768, 665.8597194388777, 667.1723446893787, 668.4849699398798, 669.7975951903808, 671.1102204408818, 672.4228456913827, 673.7354709418837, 675.0480961923847, 676.3607214428857, 677.6733466933867, 678.9859719438878, 680.2985971943888, 681.6112224448898, 682.9238476953908, 684.2364729458918, 685.5490981963928, 686.8617234468937, 688.1743486973947, 689.4869739478958, 690.7995991983968, 692.1122244488978, 693.4248496993988, 694.7374749498998, 696.0501002004008, 697.3627254509018, 698.6753507014027, 699.9879759519038, 701.3006012024048, 702.6132264529058, 703.9258517034068, 705.2384769539078, 706.5511022044088, 707.8637274549098, 709.1763527054109, 710.4889779559119, 711.8016032064128, 713.1142284569138, 714.4268537074148, 715.7394789579158, 717.0521042084168, 718.3647294589179, 719.6773547094189, 720.9899799599199, 722.3026052104209, 723.6152304609218, 724.9278557114228, 726.2404809619238, 727.5531062124248, 728.8657314629259, 730.1783567134269, 731.4909819639279, 732.8036072144289, 734.1162324649299, 735.4288577154308, 736.7414829659318, 738.0541082164328, 739.3667334669339, 740.6793587174349, 741.9919839679359, 743.3046092184369, 744.6172344689379, 745.9298597194389, 747.2424849699398, 748.5551102204408, 749.8677354709419, 751.1803607214429, 752.4929859719439, 753.8056112224449, 755.1182364729459, 756.4308617234469, 757.7434869739479, 759.056112224449, 760.3687374749499, 761.6813627254509, 762.9939879759519, 764.3066132264529, 765.6192384769539, 766.9318637274549, 768.2444889779559, 769.557114228457, 770.869739478958, 772.1823647294589, 773.4949899799599, 774.8076152304609, 776.1202404809619, 777.4328657314629, 778.7454909819639, 780.058116232465, 781.370741482966, 782.683366733467, 783.9959919839679, 785.3086172344689, 786.6212424849699, 787.9338677354709, 789.2464929859719, 790.559118236473, 791.871743486974, 793.184368737475, 794.496993987976, 795.8096192384769, 797.1222444889779, 798.4348697394789, 799.7474949899799, 801.060120240481, 802.372745490982, 803.685370741483, 804.997995991984, 806.310621242485, 807.623246492986, 808.9358717434869, 810.2484969939879, 811.561122244489, 812.87374749499, 814.186372745491, 815.498997995992, 816.811623246493, 818.124248496994, 819.436873747495, 820.7494989979959, 822.062124248497, 823.374749498998, 824.687374749499, 826.0])
+              .range(['#ff9999ff', '#ff9898ff', '#ff9898ff', '#ff9797ff', '#ff9797ff', '#ff9696ff', '#ff9595ff', '#ff9595ff', '#ff9494ff', '#ff9494ff', '#ff9393ff', '#ff9292ff', '#ff9292ff', '#ff9191ff', '#ff9090ff', '#ff9090ff', '#ff8f8fff', '#ff8f8fff', '#ff8e8eff', '#ff8d8dff', '#ff8d8dff', '#ff8c8cff', '#ff8c8cff', '#ff8b8bff', '#ff8a8aff', '#ff8a8aff', '#ff8989ff', '#ff8888ff', '#ff8888ff', '#ff8787ff', '#ff8787ff', '#ff8686ff', '#ff8585ff', '#ff8585ff', '#ff8484ff', '#ff8484ff', '#ff8383ff', '#ff8282ff', '#ff8282ff', '#ff8181ff', '#ff8080ff', '#ff8080ff', '#ff7f7fff', '#ff7f7fff', '#ff7e7eff', '#ff7d7dff', '#ff7d7dff', '#ff7c7cff', '#ff7c7cff', '#ff7b7bff', '#ff7a7aff', '#ff7a7aff', '#ff7979ff', '#ff7878ff', '#ff7878ff', '#ff7777ff', '#ff7777ff', '#ff7676ff', '#ff7575ff', '#ff7575ff', '#ff7474ff', '#ff7474ff', '#ff7373ff', '#ff7272ff', '#ff7272ff', '#ff7171ff', '#ff7070ff', '#ff7070ff', '#ff6f6fff', '#ff6f6fff', '#ff6e6eff', '#ff6d6dff', '#ff6d6dff', '#ff6c6cff', '#ff6c6cff', '#ff6b6bff', '#ff6a6aff', '#ff6a6aff', '#ff6969ff', '#ff6868ff', '#ff6868ff', '#ff6767ff', '#ff6767ff', '#ff6666ff', '#ff6565ff', '#ff6565ff', '#ff6464ff', '#ff6464ff', '#ff6363ff', '#ff6262ff', '#ff6262ff', '#ff6161ff', '#ff6060ff', '#ff6060ff', '#ff5f5fff', '#ff5f5fff', '#ff5e5eff', '#ff5d5dff', '#ff5d5dff', '#ff5c5cff', '#ff5c5cff', '#ff5b5bff', '#ff5a5aff', '#ff5a5aff', '#ff5959ff', '#ff5858ff', '#ff5858ff', '#ff5757ff', '#ff5757ff', '#ff5656ff', '#ff5555ff', '#ff5555ff', '#ff5454ff', '#ff5454ff', '#ff5353ff', '#ff5252ff', '#ff5252ff', '#ff5151ff', '#ff5050ff', '#ff5050ff', '#ff4f4fff', '#ff4f4fff', '#ff4e4eff', '#ff4d4dff', '#ff4d4dff', '#ff4c4cff', '#ff4c4cff', '#ff4b4bff', '#ff4a4aff', '#ff4a4aff', '#ff4949ff', '#ff4848ff', '#ff4848ff', '#ff4747ff', '#ff4747ff', '#ff4646ff', '#ff4545ff', '#ff4545ff', '#ff4444ff', '#ff4444ff', '#ff4343ff', '#ff4242ff', '#ff4242ff', '#ff4141ff', '#ff4040ff', '#ff4040ff', '#ff3f3fff', '#ff3f3fff', '#ff3e3eff', '#ff3d3dff', '#ff3d3dff', '#ff3c3cff', '#ff3c3cff', '#ff3b3bff', '#ff3a3aff', '#ff3a3aff', '#ff3939ff', '#ff3838ff', '#ff3838ff', '#ff3737ff', '#ff3737ff', '#ff3636ff', '#ff3535ff', '#ff3535ff', '#ff3434ff', '#ff3434ff', '#ff3333ff', '#ff3232ff', '#ff3232ff', '#ff3131ff', '#ff3030ff', '#ff3030ff', '#ff2f2fff', '#ff2f2fff', '#ff2e2eff', '#ff2d2dff', '#ff2d2dff', '#ff2c2cff', '#ff2c2cff', '#ff2b2bff', '#ff2a2aff', '#ff2a2aff', '#ff2929ff', '#ff2828ff', '#ff2828ff', '#ff2727ff', '#ff2727ff', '#ff2626ff', '#ff2525ff', '#ff2525ff', '#ff2424ff', '#ff2424ff', '#ff2323ff', '#ff2222ff', '#ff2222ff', '#ff2121ff', '#ff2020ff', '#ff2020ff', '#ff1f1fff', '#ff1f1fff', '#ff1e1eff', '#ff1d1dff', '#ff1d1dff', '#ff1c1cff', '#ff1c1cff', '#ff1b1bff', '#ff1a1aff', '#ff1a1aff', '#ff1919ff', '#ff1818ff', '#ff1818ff', '#ff1717ff', '#ff1717ff', '#ff1616ff', '#ff1515ff', '#ff1515ff', '#ff1414ff', '#ff1414ff', '#ff1313ff', '#ff1212ff', '#ff1212ff', '#ff1111ff', '#ff1010ff', '#ff1010ff', '#ff0f0fff', '#ff0f0fff', '#ff0e0eff', '#ff0d0dff', '#ff0d0dff', '#ff0c0cff', '#ff0c0cff', '#ff0b0bff', '#ff0a0aff', '#ff0a0aff', '#ff0909ff', '#ff0808ff', '#ff0808ff', '#ff0707ff', '#ff0707ff', '#ff0606ff', '#ff0505ff', '#ff0505ff', '#ff0404ff', '#ff0404ff', '#ff0303ff', '#ff0202ff', '#ff0202ff', '#ff0101ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#fe0000ff', '#fe0000ff', '#fd0000ff', '#fd0000ff', '#fc0000ff', '#fc0000ff', '#fc0000ff', '#fb0000ff', '#fb0000ff', '#fa0000ff', '#fa0000ff', '#f90000ff', '#f90000ff', '#f80000ff', '#f80000ff', '#f70000ff', '#f70000ff', '#f60000ff', '#f60000ff', '#f50000ff', '#f50000ff', '#f50000ff', '#f40000ff', '#f40000ff', '#f30000ff', '#f30000ff', '#f20000ff', '#f20000ff', '#f10000ff', '#f10000ff', '#f00000ff', '#f00000ff', '#ef0000ff', '#ef0000ff', '#ee0000ff', '#ee0000ff', '#ee0000ff', '#ed0000ff', '#ed0000ff', '#ec0000ff', '#ec0000ff', '#eb0000ff', '#eb0000ff', '#ea0000ff', '#ea0000ff', '#e90000ff', '#e90000ff', '#e80000ff', '#e80000ff', '#e70000ff', '#e70000ff', '#e70000ff', '#e60000ff', '#e60000ff', '#e50000ff', '#e50000ff', '#e40000ff', '#e40000ff', '#e30000ff', '#e30000ff', '#e20000ff', '#e20000ff', '#e10000ff', '#e10000ff', '#e00000ff', '#e00000ff', '#e00000ff', '#df0000ff', '#df0000ff', '#de0000ff', '#de0000ff', '#dd0000ff', '#dd0000ff', '#dc0000ff', '#dc0000ff', '#db0000ff', '#db0000ff', '#da0000ff', '#da0000ff', '#d90000ff', '#d90000ff', '#d90000ff', '#d80000ff', '#d80000ff', '#d70000ff', '#d70000ff', '#d60000ff', '#d60000ff', '#d50000ff', '#d50000ff', '#d40000ff', '#d40000ff', '#d30000ff', '#d30000ff', '#d20000ff', '#d20000ff', '#d20000ff', '#d10000ff', '#d10000ff', '#d00000ff', '#d00000ff', '#cf0000ff', '#cf0000ff', '#ce0000ff', '#ce0000ff', '#cd0000ff', '#cd0000ff', '#cc0000ff', '#cc0000ff', '#cb0000ff', '#cb0000ff', '#cb0000ff', '#ca0000ff', '#ca0000ff', '#c90000ff', '#c90000ff', '#c80000ff', '#c80000ff', '#c70000ff', '#c70000ff', '#c60000ff', '#c60000ff', '#c50000ff', '#c50000ff', '#c40000ff', '#c40000ff', '#c40000ff', '#c30000ff', '#c30000ff', '#c20000ff', '#c20000ff', '#c10000ff', '#c10000ff', '#c00000ff', '#c00000ff', '#bf0000ff', '#bf0000ff', '#be0000ff', '#be0000ff', '#bd0000ff', '#bd0000ff', '#bd0000ff', '#bc0000ff', '#bc0000ff', '#bb0000ff', '#bb0000ff', '#ba0000ff', '#ba0000ff', '#b90000ff', '#b90000ff', '#b80000ff', '#b80000ff', '#b70000ff', '#b70000ff', '#b60000ff', '#b60000ff', '#b60000ff', '#b50000ff', '#b50000ff', '#b40000ff', '#b40000ff', '#b30000ff', '#b30000ff', '#b20000ff', '#b20000ff', '#b10000ff', '#b10000ff', '#b00000ff', '#b00000ff', '#af0000ff', '#af0000ff', '#af0000ff', '#ae0000ff', '#ae0000ff', '#ad0000ff', '#ad0000ff', '#ac0000ff', '#ac0000ff', '#ab0000ff', '#ab0000ff', '#aa0000ff', '#aa0000ff', '#a90000ff', '#a90000ff', '#a80000ff', '#a80000ff', '#a80000ff', '#a70000ff', '#a70000ff', '#a60000ff', '#a60000ff', '#a50000ff', '#a50000ff', '#a40000ff', '#a40000ff', '#a30000ff', '#a30000ff', '#a20000ff', '#a20000ff', '#a10000ff', '#a10000ff', '#a10000ff', '#a00000ff', '#a00000ff', '#9f0000ff', '#9f0000ff', '#9e0000ff', '#9e0000ff', '#9d0000ff', '#9d0000ff', '#9c0000ff', '#9c0000ff', '#9b0000ff', '#9b0000ff', '#9a0000ff', '#9a0000ff', '#9a0000ff', '#990000ff', '#990000ff', '#980000ff', '#980000ff', '#970000ff', '#970000ff', '#960000ff', '#960000ff', '#950000ff', '#950000ff', '#940000ff', '#940000ff', '#930000ff', '#930000ff', '#930000ff', '#920000ff', '#920000ff', '#910000ff', '#910000ff', '#900000ff', '#900000ff', '#8f0000ff', '#8f0000ff', '#8e0000ff', '#8e0000ff', '#8d0000ff', '#8d0000ff', '#8c0000ff', '#8c0000ff', '#8c0000ff', '#8b0000ff']);
+    
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.x = d3.scale.linear()
+              .domain([171.0, 826.0])
+              .range([0, 450 - 50]);
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.legend = L.control({position: 'topright'});
+    color_map_7d4395a7beecec576bcc1601ac13702a.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_7d4395a7beecec576bcc1601ac13702a.legend.addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.xAxis = d3.svg.axis()
+        .scale(color_map_7d4395a7beecec576bcc1601ac13702a.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([171.0, 498.5, 826.0]);
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.g = color_map_7d4395a7beecec576bcc1601ac13702a.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.g.selectAll("rect")
+        .data(color_map_7d4395a7beecec576bcc1601ac13702a.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_7d4395a7beecec576bcc1601ac13702a.x(color_map_7d4395a7beecec576bcc1601ac13702a.color.domain()[i - 1]) : color_map_7d4395a7beecec576bcc1601ac13702a.x.range()[0],
+            x1: i < color_map_7d4395a7beecec576bcc1601ac13702a.color.domain().length ? color_map_7d4395a7beecec576bcc1601ac13702a.x(color_map_7d4395a7beecec576bcc1601ac13702a.color.domain()[i]) : color_map_7d4395a7beecec576bcc1601ac13702a.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_7d4395a7beecec576bcc1601ac13702a.g.call(color_map_7d4395a7beecec576bcc1601ac13702a.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Liczba przejazd\u00f3w");
+    
+            var marker_46c79e062147f0b91e8d85ff7cc30a8d = L.marker(
+                [40.71942, -74.05099],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_58953fa546f65287c3249b1e3218d65a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c14fa77f1e2bd96755458282faa479d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6b7f1d8d2ecf14be64157e947ea4b42 = $(`<div id="html_b6b7f1d8d2ecf14be64157e947ea4b42" style="width: 100.0%; height: 100.0%;">Montgomery St</div>`)[0];
+                popup_c14fa77f1e2bd96755458282faa479d0.setContent(html_b6b7f1d8d2ecf14be64157e947ea4b42);
+            
+        
+
+        marker_46c79e062147f0b91e8d85ff7cc30a8d.bindPopup(popup_c14fa77f1e2bd96755458282faa479d0)
+        ;
+
+        
+    
+    
+                marker_46c79e062147f0b91e8d85ff7cc30a8d.setIcon(icon_58953fa546f65287c3249b1e3218d65a);
+            
+    
+            var marker_979834e2185060297d11c2ade897e145 = L.marker(
+                [40.742677141, -74.051788633],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_9871db2d41dd50f4eac241cc88188278 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e87daf09427e077c127874ec12b8f6da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_efbba376ceb03da5476a4ecb0c1fe957 = $(`<div id="html_efbba376ceb03da5476a4ecb0c1fe957" style="width: 100.0%; height: 100.0%;">Pershing Field</div>`)[0];
+                popup_e87daf09427e077c127874ec12b8f6da.setContent(html_efbba376ceb03da5476a4ecb0c1fe957);
+            
+        
+
+        marker_979834e2185060297d11c2ade897e145.bindPopup(popup_e87daf09427e077c127874ec12b8f6da)
+        ;
+
+        
+    
+    
+                marker_979834e2185060297d11c2ade897e145.setIcon(icon_9871db2d41dd50f4eac241cc88188278);
+            
+    
+            var marker_ebf1d70147e476efd1e92b90a8507623 = L.marker(
+                [40.7408139, -74.0274062],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_3be253ea3dc5c7508bd775427c89ed3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_843d35b329795ac974876e7866ff9b13 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_53e24b66efa2617e8b58a8a08a885353 = $(`<div id="html_53e24b66efa2617e8b58a8a08a885353" style="width: 100.0%; height: 100.0%;">4 St & River St</div>`)[0];
+                popup_843d35b329795ac974876e7866ff9b13.setContent(html_53e24b66efa2617e8b58a8a08a885353);
+            
+        
+
+        marker_ebf1d70147e476efd1e92b90a8507623.bindPopup(popup_843d35b329795ac974876e7866ff9b13)
+        ;
+
+        
+    
+    
+                marker_ebf1d70147e476efd1e92b90a8507623.setIcon(icon_3be253ea3dc5c7508bd775427c89ed3c);
+            
+    
+            var marker_e39ea12158f588f2f411880f2e24a6e1 = L.marker(
+                [40.72568548362901, -74.04879033565521],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_88d125c4ce433fb0194b764a679b83b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7f7eba59f1b0eb76358494da71c69073 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29bea54aba06e72bceab591e181f6919 = $(`<div id="html_29bea54aba06e72bceab591e181f6919" style="width: 100.0%; height: 100.0%;">Monmouth & 6th</div>`)[0];
+                popup_7f7eba59f1b0eb76358494da71c69073.setContent(html_29bea54aba06e72bceab591e181f6919);
+            
+        
+
+        marker_e39ea12158f588f2f411880f2e24a6e1.bindPopup(popup_7f7eba59f1b0eb76358494da71c69073)
+        ;
+
+        
+    
+    
+                marker_e39ea12158f588f2f411880f2e24a6e1.setIcon(icon_88d125c4ce433fb0194b764a679b83b6);
+            
+    
+            var marker_4c682c5b42979b9a40ce353bc7704e09 = L.marker(
+                [40.74265933273143, -74.03223305940628],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_8fde6b0c268e879175251576a86ea36b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fc7ebed4830b9d5c5433918024a9903d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79fa9cbf817a4ff79469f0173920a1b1 = $(`<div id="html_79fa9cbf817a4ff79469f0173920a1b1" style="width: 100.0%; height: 100.0%;">Church Sq Park - 5 St & Park Ave</div>`)[0];
+                popup_fc7ebed4830b9d5c5433918024a9903d.setContent(html_79fa9cbf817a4ff79469f0173920a1b1);
+            
+        
+
+        marker_4c682c5b42979b9a40ce353bc7704e09.bindPopup(popup_fc7ebed4830b9d5c5433918024a9903d)
+        ;
+
+        
+    
+    
+                marker_4c682c5b42979b9a40ce353bc7704e09.setIcon(icon_8fde6b0c268e879175251576a86ea36b);
+            
+    
+            var marker_d12e46d20360902ad2faf58f8de7a5b1 = L.marker(
+                [40.72333158646436, -74.04595255851744],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_c8906dc78f0fe4b8d4f4fd381d7f6d01 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72309d9871297d80e629eaab33145212 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa91b7e114c50e7e8b8c1c55314bdf68 = $(`<div id="html_aa91b7e114c50e7e8b8c1c55314bdf68" style="width: 100.0%; height: 100.0%;">Jersey & 3rd</div>`)[0];
+                popup_72309d9871297d80e629eaab33145212.setContent(html_aa91b7e114c50e7e8b8c1c55314bdf68);
+            
+        
+
+        marker_d12e46d20360902ad2faf58f8de7a5b1.bindPopup(popup_72309d9871297d80e629eaab33145212)
+        ;
+
+        
+    
+    
+                marker_d12e46d20360902ad2faf58f8de7a5b1.setIcon(icon_c8906dc78f0fe4b8d4f4fd381d7f6d01);
+            
+    
+            var marker_ebe2e2413700c80b94742274a35254bd = L.marker(
+                [40.72572613742557, -74.07195925712585],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_7692894b1fbfa19571356af1a717edc4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_be7de562fdf7eadafbcf9b13db93a6eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64b12bec4a1a11c334427e4ac93e4fdb = $(`<div id="html_64b12bec4a1a11c334427e4ac93e4fdb" style="width: 100.0%; height: 100.0%;">Fairmount Ave</div>`)[0];
+                popup_be7de562fdf7eadafbcf9b13db93a6eb.setContent(html_64b12bec4a1a11c334427e4ac93e4fdb);
+            
+        
+
+        marker_ebe2e2413700c80b94742274a35254bd.bindPopup(popup_be7de562fdf7eadafbcf9b13db93a6eb)
+        ;
+
+        
+    
+    
+                marker_ebe2e2413700c80b94742274a35254bd.setIcon(icon_7692894b1fbfa19571356af1a717edc4);
+            
+    
+            var marker_5bfad4e64472c5d37de8fcd6f175b7da = L.marker(
+                [40.73879, -74.0393],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_688baee2d1fcc7141fe5ba8834d460fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ba184f0dc71830050bb11c96a5bf53c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b137921e6043337a34e588b3992ef7f = $(`<div id="html_2b137921e6043337a34e588b3992ef7f" style="width: 100.0%; height: 100.0%;">Madison St & 1 St</div>`)[0];
+                popup_ba184f0dc71830050bb11c96a5bf53c1.setContent(html_2b137921e6043337a34e588b3992ef7f);
+            
+        
+
+        marker_5bfad4e64472c5d37de8fcd6f175b7da.bindPopup(popup_ba184f0dc71830050bb11c96a5bf53c1)
+        ;
+
+        
+    
+    
+                marker_5bfad4e64472c5d37de8fcd6f175b7da.setIcon(icon_688baee2d1fcc7141fe5ba8834d460fe);
+            
+    
+            var marker_7f01915de9d2d4036ca34da048a2efd4 = L.marker(
+                [40.73755127245804, -74.04166370630264],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_c4b9dded415cb4d2017317714f317def = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70c520ddcd4af363a15852105b19a8c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f6a554aad4a3040895f947674d63ec3c = $(`<div id="html_f6a554aad4a3040895f947674d63ec3c" style="width: 100.0%; height: 100.0%;">Southwest Park - Jackson St & Observer Hwy</div>`)[0];
+                popup_70c520ddcd4af363a15852105b19a8c8.setContent(html_f6a554aad4a3040895f947674d63ec3c);
+            
+        
+
+        marker_7f01915de9d2d4036ca34da048a2efd4.bindPopup(popup_70c520ddcd4af363a15852105b19a8c8)
+        ;
+
+        
+    
+    
+                marker_7f01915de9d2d4036ca34da048a2efd4.setIcon(icon_c4b9dded415cb4d2017317714f317def);
+            
+    
+            var marker_be9e9c7e542c8209e746b74559b2db54 = L.marker(
+                [40.71458403535893, -74.04281705617905],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_a9c3a2e234fd602eb8879e0fbe0b9dcd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ef4665b0bc6ec107d42dceed65f6339 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b14fc8e0fa1bc12130683434fc1b229 = $(`<div id="html_0b14fc8e0fa1bc12130683434fc1b229" style="width: 100.0%; height: 100.0%;">Marin Light Rail</div>`)[0];
+                popup_2ef4665b0bc6ec107d42dceed65f6339.setContent(html_0b14fc8e0fa1bc12130683434fc1b229);
+            
+        
+
+        marker_be9e9c7e542c8209e746b74559b2db54.bindPopup(popup_2ef4665b0bc6ec107d42dceed65f6339)
+        ;
+
+        
+    
+    
+                marker_be9e9c7e542c8209e746b74559b2db54.setIcon(icon_a9c3a2e234fd602eb8879e0fbe0b9dcd);
+            
+    
+            var marker_d5234f54155222fd7f67b07afe3196a2 = L.marker(
+                [40.7443978330956, -74.03450086712837],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_c915df863e63257d0d6958c14790543c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9afeddfafbfb6a2c3b78d31e7bce8654 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43d6e7322af7e0b44a1304594a24f274 = $(`<div id="html_43d6e7322af7e0b44a1304594a24f274" style="width: 100.0%; height: 100.0%;">6 St & Grand St</div>`)[0];
+                popup_9afeddfafbfb6a2c3b78d31e7bce8654.setContent(html_43d6e7322af7e0b44a1304594a24f274);
+            
+        
+
+        marker_d5234f54155222fd7f67b07afe3196a2.bindPopup(popup_9afeddfafbfb6a2c3b78d31e7bce8654)
+        ;
+
+        
+    
+    
+                marker_d5234f54155222fd7f67b07afe3196a2.setIcon(icon_c915df863e63257d0d6958c14790543c);
+            
+    
+            var marker_46e87090b46ab4f3cfd6ee8993b4b798 = L.marker(
+                [40.7242941, -74.0354826],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_62a132d972559ffdd036bc4ebf3e8ebe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_528f6c0acc20d31d4259d897ca9ff276 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b3e293c2c0c96a3dffe6569b90e57d8 = $(`<div id="html_5b3e293c2c0c96a3dffe6569b90e57d8" style="width: 100.0%; height: 100.0%;">Washington St</div>`)[0];
+                popup_528f6c0acc20d31d4259d897ca9ff276.setContent(html_5b3e293c2c0c96a3dffe6569b90e57d8);
+            
+        
+
+        marker_46e87090b46ab4f3cfd6ee8993b4b798.bindPopup(popup_528f6c0acc20d31d4259d897ca9ff276)
+        ;
+
+        
+    
+    
+                marker_46e87090b46ab4f3cfd6ee8993b4b798.setIcon(icon_62a132d972559ffdd036bc4ebf3e8ebe);
+            
+    
+            var marker_ee521507cc0c6f5a516c3daf53a9466a = L.marker(
+                [40.71848892, -74.047726625],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_8489f054930812802be88068544e0303 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_25d0cdcc2f8d87d4c22d168aa3015988 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_78a6f8a4e9a3c77d84ccbc55e7c77221 = $(`<div id="html_78a6f8a4e9a3c77d84ccbc55e7c77221" style="width: 100.0%; height: 100.0%;">Van Vorst Park</div>`)[0];
+                popup_25d0cdcc2f8d87d4c22d168aa3015988.setContent(html_78a6f8a4e9a3c77d84ccbc55e7c77221);
+            
+        
+
+        marker_ee521507cc0c6f5a516c3daf53a9466a.bindPopup(popup_25d0cdcc2f8d87d4c22d168aa3015988)
+        ;
+
+        
+    
+    
+                marker_ee521507cc0c6f5a516c3daf53a9466a.setIcon(icon_8489f054930812802be88068544e0303);
+            
+    
+            var marker_da6ae8de0d50fd5e36ae8d048e6b78eb = L.marker(
+                [40.73981372311843, -74.03690412640572],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_53401c0f2b09a6fcd8b8ab74bd1b2194 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_797c08bcd87dbdab2d4034ffcf23f2e3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aad5b100f0421e384b671920ce589a94 = $(`<div id="html_aad5b100f0421e384b671920ce589a94" style="width: 100.0%; height: 100.0%;">Adams St & 2 St</div>`)[0];
+                popup_797c08bcd87dbdab2d4034ffcf23f2e3.setContent(html_aad5b100f0421e384b671920ce589a94);
+            
+        
+
+        marker_da6ae8de0d50fd5e36ae8d048e6b78eb.bindPopup(popup_797c08bcd87dbdab2d4034ffcf23f2e3)
+        ;
+
+        
+    
+    
+                marker_da6ae8de0d50fd5e36ae8d048e6b78eb.setIcon(icon_53401c0f2b09a6fcd8b8ab74bd1b2194);
+            
+    
+            var marker_edfb3d6f9b17fb8fb0570c1c36bab4b4 = L.marker(
+                [40.73736, -74.03097],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_22ab37627b33ef0621ea60f587612bea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a6cd8534b75b8d1117994da386130c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6815ec2a6cfb1834944d0305d1f64b02 = $(`<div id="html_6815ec2a6cfb1834944d0305d1f64b02" style="width: 100.0%; height: 100.0%;">City Hall - Washington St & 1 St</div>`)[0];
+                popup_9a6cd8534b75b8d1117994da386130c0.setContent(html_6815ec2a6cfb1834944d0305d1f64b02);
+            
+        
+
+        marker_edfb3d6f9b17fb8fb0570c1c36bab4b4.bindPopup(popup_9a6cd8534b75b8d1117994da386130c0)
+        ;
+
+        
+    
+    
+                marker_edfb3d6f9b17fb8fb0570c1c36bab4b4.setIcon(icon_22ab37627b33ef0621ea60f587612bea);
+            
+    
+            var marker_dd1b37c2d73cc8ba7d7eb8176e85fd65 = L.marker(
+                [40.71539114317, -74.04969155788422],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_da6b93dbc0a3554f320f54e921f901ed = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bc05837e37ca28777cfdc635e9348468 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_258343f25212d19ef824cd3f9d80236d = $(`<div id="html_258343f25212d19ef824cd3f9d80236d" style="width: 100.0%; height: 100.0%;">JC Medical Center</div>`)[0];
+                popup_bc05837e37ca28777cfdc635e9348468.setContent(html_258343f25212d19ef824cd3f9d80236d);
+            
+        
+
+        marker_dd1b37c2d73cc8ba7d7eb8176e85fd65.bindPopup(popup_bc05837e37ca28777cfdc635e9348468)
+        ;
+
+        
+    
+    
+                marker_dd1b37c2d73cc8ba7d7eb8176e85fd65.setIcon(icon_da6b93dbc0a3554f320f54e921f901ed);
+            
+    
+            var marker_de54735db11370fe37c358c9a5827144 = L.marker(
+                [40.73672227316331, -74.02900660353771],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_370ab13d743639ecdd469d9d9461ea17 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22f302505deee45359dadfbb8a9fb1ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac05c6ef8aa6e21fbb02ad70cd86a37b = $(`<div id="html_ac05c6ef8aa6e21fbb02ad70cd86a37b" style="width: 100.0%; height: 100.0%;">River St & Newark St</div>`)[0];
+                popup_22f302505deee45359dadfbb8a9fb1ee.setContent(html_ac05c6ef8aa6e21fbb02ad70cd86a37b);
+            
+        
+
+        marker_de54735db11370fe37c358c9a5827144.bindPopup(popup_22f302505deee45359dadfbb8a9fb1ee)
+        ;
+
+        
+    
+    
+                marker_de54735db11370fe37c358c9a5827144.setIcon(icon_370ab13d743639ecdd469d9d9461ea17);
+            
+    
+            var marker_21ff147213e182195837d41badf34682 = L.marker(
+                [40.72528910781132, -74.04557168483734],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_1eaa9bc48f574b34134cd13d8ca44b9e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7ab93d1252e42b0459413e538d08372c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f42b46929b297e80799cc65995282a5 = $(`<div id="html_4f42b46929b297e80799cc65995282a5" style="width: 100.0%; height: 100.0%;">Jersey & 6th St</div>`)[0];
+                popup_7ab93d1252e42b0459413e538d08372c.setContent(html_4f42b46929b297e80799cc65995282a5);
+            
+        
+
+        marker_21ff147213e182195837d41badf34682.bindPopup(popup_7ab93d1252e42b0459413e538d08372c)
+        ;
+
+        
+    
+    
+                marker_21ff147213e182195837d41badf34682.setIcon(icon_1eaa9bc48f574b34134cd13d8ca44b9e);
+            
+    
+            var marker_5607f8bf7b69ca3b5fffb3a05d85753b = L.marker(
+                [40.71435836870427, -74.06661093235016],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_07c653725a73f267916b7e32f27898fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa5f9300a41811156fdcb527bdb833ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_37a0406ea5f6b9feed6124d1f88dbf16 = $(`<div id="html_37a0406ea5f6b9feed6124d1f88dbf16" style="width: 100.0%; height: 100.0%;">Communipaw & Berry Lane</div>`)[0];
+                popup_fa5f9300a41811156fdcb527bdb833ca.setContent(html_37a0406ea5f6b9feed6124d1f88dbf16);
+            
+        
+
+        marker_5607f8bf7b69ca3b5fffb3a05d85753b.bindPopup(popup_fa5f9300a41811156fdcb527bdb833ca)
+        ;
+
+        
+    
+    
+                marker_5607f8bf7b69ca3b5fffb3a05d85753b.setIcon(icon_07c653725a73f267916b7e32f27898fa);
+            
+    
+            var marker_2408a72855391243084987f8a47ef6f1 = L.marker(
+                [40.74313282710551, -74.02698867022991],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_ce40a563a18ec399aa3992fbd31aab22 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ef67b937435d897865978afa2578f7dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb1ef0227d52eaba3d483411ae9e899f = $(`<div id="html_bb1ef0227d52eaba3d483411ae9e899f" style="width: 100.0%; height: 100.0%;">Stevens - River Ter & 6 St</div>`)[0];
+                popup_ef67b937435d897865978afa2578f7dd.setContent(html_bb1ef0227d52eaba3d483411ae9e899f);
+            
+        
+
+        marker_2408a72855391243084987f8a47ef6f1.bindPopup(popup_ef67b937435d897865978afa2578f7dd)
+        ;
+
+        
+    
+    
+                marker_2408a72855391243084987f8a47ef6f1.setIcon(icon_ce40a563a18ec399aa3992fbd31aab22);
+            
+    
+            var marker_7fe2af32ee8e7caedf6a8ac8fe9d883a = L.marker(
+                [40.7211236, -74.03805095],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_5b3dfc65063f1b8d0d6c02b491de121c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ff26a3022d47c325dd5aeefb625dd3f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_890bcf36595337cf0f06ecfea78c249e = $(`<div id="html_890bcf36595337cf0f06ecfea78c249e" style="width: 100.0%; height: 100.0%;">Warren St</div>`)[0];
+                popup_4ff26a3022d47c325dd5aeefb625dd3f.setContent(html_890bcf36595337cf0f06ecfea78c249e);
+            
+        
+
+        marker_7fe2af32ee8e7caedf6a8ac8fe9d883a.bindPopup(popup_4ff26a3022d47c325dd5aeefb625dd3f)
+        ;
+
+        
+    
+    
+                marker_7fe2af32ee8e7caedf6a8ac8fe9d883a.setIcon(icon_5b3dfc65063f1b8d0d6c02b491de121c);
+            
+    
+            var marker_bc7b2cb2fc0d60beb712c2e3bc6ff37d = L.marker(
+                [40.73593758446329, -74.03030455112457],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_0246805715c01b711060d62046354db1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_de83890d8261716fdc6d2e6b3cd2b223 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9b95bc4b16133c1cb50b7aac0305c233 = $(`<div id="html_9b95bc4b16133c1cb50b7aac0305c233" style="width: 100.0%; height: 100.0%;">Hoboken Terminal - Hudson St & Hudson Pl</div>`)[0];
+                popup_de83890d8261716fdc6d2e6b3cd2b223.setContent(html_9b95bc4b16133c1cb50b7aac0305c233);
+            
+        
+
+        marker_bc7b2cb2fc0d60beb712c2e3bc6ff37d.bindPopup(popup_de83890d8261716fdc6d2e6b3cd2b223)
+        ;
+
+        
+    
+    
+                marker_bc7b2cb2fc0d60beb712c2e3bc6ff37d.setIcon(icon_0246805715c01b711060d62046354db1);
+            
+    
+            var marker_49148f624a8ff042785c9ebb5112632b = L.marker(
+                [40.74641264837719, -74.03797701001167],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_218653e9a567cc0f8d1650e38047be4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ac7893aa3e0fc38347f62b4764d36f5d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf437c6730f8f3402a59f0fb1976685f = $(`<div id="html_cf437c6730f8f3402a59f0fb1976685f" style="width: 100.0%; height: 100.0%;">7 St & Monroe St</div>`)[0];
+                popup_ac7893aa3e0fc38347f62b4764d36f5d.setContent(html_cf437c6730f8f3402a59f0fb1976685f);
+            
+        
+
+        marker_49148f624a8ff042785c9ebb5112632b.bindPopup(popup_ac7893aa3e0fc38347f62b4764d36f5d)
+        ;
+
+        
+    
+    
+                marker_49148f624a8ff042785c9ebb5112632b.setIcon(icon_218653e9a567cc0f8d1650e38047be4f);
+            
+    
+            var marker_4b78a849bb66c055f7734f524df57c62 = L.marker(
+                [40.713203, -74.058261],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_10c7c4c0cd182b1891d08a1f03a2a70e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cf2152bba6a068db913193637e4a686b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c944aba5902b7c09c6628f7a3124077 = $(`<div id="html_6c944aba5902b7c09c6628f7a3124077" style="width: 100.0%; height: 100.0%;">Dr. Lena Edwards Park</div>`)[0];
+                popup_cf2152bba6a068db913193637e4a686b.setContent(html_6c944aba5902b7c09c6628f7a3124077);
+            
+        
+
+        marker_4b78a849bb66c055f7734f524df57c62.bindPopup(popup_cf2152bba6a068db913193637e4a686b)
+        ;
+
+        
+    
+    
+                marker_4b78a849bb66c055f7734f524df57c62.setIcon(icon_10c7c4c0cd182b1891d08a1f03a2a70e);
+            
+    
+            var marker_bebfa737e6fa3356dc59368c84690acf = L.marker(
+                [40.74590996631558, -74.0572714805603],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_dc58c76eba65bd3b845e06dfe3d12bab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d900195ae6bd2f41c7a5b20694164892 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc5708cac5e0afa9c5a6a64ac4992b53 = $(`<div id="html_cc5708cac5e0afa9c5a6a64ac4992b53" style="width: 100.0%; height: 100.0%;">Leonard Gordon Park</div>`)[0];
+                popup_d900195ae6bd2f41c7a5b20694164892.setContent(html_cc5708cac5e0afa9c5a6a64ac4992b53);
+            
+        
+
+        marker_bebfa737e6fa3356dc59368c84690acf.bindPopup(popup_d900195ae6bd2f41c7a5b20694164892)
+        ;
+
+        
+    
+    
+                marker_bebfa737e6fa3356dc59368c84690acf.setIcon(icon_dc58c76eba65bd3b845e06dfe3d12bab);
+            
+    
+            var marker_53d9d0c7f6fcf3d08f70dbb1fd65c9c8 = L.marker(
+                [40.72601172964625, -74.05038893222809],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_43eb9b40220eec99cfa3fb2c352cc732 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a76b3eace672d8bcd8fcb153520e0435 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee8a8930644f96133185ae68216d6686 = $(`<div id="html_ee8a8930644f96133185ae68216d6686" style="width: 100.0%; height: 100.0%;">Brunswick & 6th</div>`)[0];
+                popup_a76b3eace672d8bcd8fcb153520e0435.setContent(html_ee8a8930644f96133185ae68216d6686);
+            
+        
+
+        marker_53d9d0c7f6fcf3d08f70dbb1fd65c9c8.bindPopup(popup_a76b3eace672d8bcd8fcb153520e0435)
+        ;
+
+        
+    
+    
+                marker_53d9d0c7f6fcf3d08f70dbb1fd65c9c8.setIcon(icon_43eb9b40220eec99cfa3fb2c352cc732);
+            
+    
+            var marker_42b3674eccc9e0fe930ffbd2c16f00d2 = L.marker(
+                [40.752960630464955, -74.02435272932053],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_cc332f76207c11b42e4d38bee6ed749a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_304f9f000557294120bf5d054f682a0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_352695f2c543251b4de9932e98282008 = $(`<div id="html_352695f2c543251b4de9932e98282008" style="width: 100.0%; height: 100.0%;">14 St Ferry - 14 St & Shipyard Ln</div>`)[0];
+                popup_304f9f000557294120bf5d054f682a0f.setContent(html_352695f2c543251b4de9932e98282008);
+            
+        
+
+        marker_42b3674eccc9e0fe930ffbd2c16f00d2.bindPopup(popup_304f9f000557294120bf5d054f682a0f)
+        ;
+
+        
+    
+    
+                marker_42b3674eccc9e0fe930ffbd2c16f00d2.setIcon(icon_cc332f76207c11b42e4d38bee6ed749a);
+            
+    
+            var marker_8f43a4bdbfbf0cb823241230e189a8bf = L.marker(
+                [40.722103786686034, -74.07145500183105],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_dd7c0274293cafbe6180fae8a471cc88 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_049848fcea87a53abbe040c0577f693f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28bc42acf33304c658fc322a4ba8ac76 = $(`<div id="html_28bc42acf33304c658fc322a4ba8ac76" style="width: 100.0%; height: 100.0%;">Bergen Ave</div>`)[0];
+                popup_049848fcea87a53abbe040c0577f693f.setContent(html_28bc42acf33304c658fc322a4ba8ac76);
+            
+        
+
+        marker_8f43a4bdbfbf0cb823241230e189a8bf.bindPopup(popup_049848fcea87a53abbe040c0577f693f)
+        ;
+
+        
+    
+    
+                marker_8f43a4bdbfbf0cb823241230e189a8bf.setIcon(icon_dd7c0274293cafbe6180fae8a471cc88);
+            
+    
+            var marker_45ff02bdfe280473560b07094072bc39 = L.marker(
+                [40.7287448, -74.0321082],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_77b8c7a822a9e0051592aed4a4a1e5f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_26e9b7bc229dccd6e74641a3713a0265 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d02483e01ff7ceef15028b5f44d34ab2 = $(`<div id="html_d02483e01ff7ceef15028b5f44d34ab2" style="width: 100.0%; height: 100.0%;">Newport Pkwy</div>`)[0];
+                popup_26e9b7bc229dccd6e74641a3713a0265.setContent(html_d02483e01ff7ceef15028b5f44d34ab2);
+            
+        
+
+        marker_45ff02bdfe280473560b07094072bc39.bindPopup(popup_26e9b7bc229dccd6e74641a3713a0265)
+        ;
+
+        
+    
+    
+                marker_45ff02bdfe280473560b07094072bc39.setIcon(icon_77b8c7a822a9e0051592aed4a4a1e5f6);
+            
+    
+            var marker_216fddadd48d60f90874791607486cd6 = L.marker(
+                [40.73721535335381, -74.02886540972803],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_2a43c45b89fd649cde433c35709523d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95acff503170f371130213b6e0ce0e56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9046b31365feb814d770eb2642eb85d6 = $(`<div id="html_9046b31365feb814d770eb2642eb85d6" style="width: 100.0%; height: 100.0%;">River St & 1 St</div>`)[0];
+                popup_95acff503170f371130213b6e0ce0e56.setContent(html_9046b31365feb814d770eb2642eb85d6);
+            
+        
+
+        marker_216fddadd48d60f90874791607486cd6.bindPopup(popup_95acff503170f371130213b6e0ce0e56)
+        ;
+
+        
+    
+    
+                marker_216fddadd48d60f90874791607486cd6.setIcon(icon_2a43c45b89fd649cde433c35709523d8);
+            
+    
+            var marker_0eba08add0b10aca7d31ebeb9b76ef68 = L.marker(
+                [40.75060414236896, -74.02402013540268],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_67f437b6d6c0fc09edc768d2206ad835 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f4854861ef7fbdb4aeacddbf93ef5895 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b769ff69ab0a26618adbb10063a08dd = $(`<div id="html_2b769ff69ab0a26618adbb10063a08dd" style="width: 100.0%; height: 100.0%;">12 St & Sinatra Dr N</div>`)[0];
+                popup_f4854861ef7fbdb4aeacddbf93ef5895.setContent(html_2b769ff69ab0a26618adbb10063a08dd);
+            
+        
+
+        marker_0eba08add0b10aca7d31ebeb9b76ef68.bindPopup(popup_f4854861ef7fbdb4aeacddbf93ef5895)
+        ;
+
+        
+    
+    
+                marker_0eba08add0b10aca7d31ebeb9b76ef68.setIcon(icon_67f437b6d6c0fc09edc768d2206ad835);
+            
+    
+            var marker_1ca59dec9460b05dae89c5712e886067 = L.marker(
+                [40.74816121065146, -74.0324530005455],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_46b2755eebf0795dd76b4ea0537cc82e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e28ebeb485f9f2954b42e9d47cbdbf50 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03595cdacff1a2e55b5d4097408afd60 = $(`<div id="html_03595cdacff1a2e55b5d4097408afd60" style="width: 100.0%; height: 100.0%;">Columbus Park - Clinton St & 9 St</div>`)[0];
+                popup_e28ebeb485f9f2954b42e9d47cbdbf50.setContent(html_03595cdacff1a2e55b5d4097408afd60);
+            
+        
+
+        marker_1ca59dec9460b05dae89c5712e886067.bindPopup(popup_e28ebeb485f9f2954b42e9d47cbdbf50)
+        ;
+
+        
+    
+    
+                marker_1ca59dec9460b05dae89c5712e886067.setIcon(icon_46b2755eebf0795dd76b4ea0537cc82e);
+            
+    
+            var marker_1652d3c1276503b90dc6553a37e167e6 = L.marker(
+                [40.71517767732029, -74.03768330812454],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_7713449a377d81d9f360ecd20f6edb7a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ffc30c8483b0ced04f451b92db28ff91 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9b45173b3289e82f449a4f362e18fb81 = $(`<div id="html_9b45173b3289e82f449a4f362e18fb81" style="width: 100.0%; height: 100.0%;">Grand St</div>`)[0];
+                popup_ffc30c8483b0ced04f451b92db28ff91.setContent(html_9b45173b3289e82f449a4f362e18fb81);
+            
+        
+
+        marker_1652d3c1276503b90dc6553a37e167e6.bindPopup(popup_ffc30c8483b0ced04f451b92db28ff91)
+        ;
+
+        
+    
+    
+                marker_1652d3c1276503b90dc6553a37e167e6.setIcon(icon_7713449a377d81d9f360ecd20f6edb7a);
+            
+    
+            var marker_fc6d93ddcdd4374c967a198ec8f2a3ea = L.marker(
+                [40.73698221818716, -74.02778059244156],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_88c14b534163e96dd77c34e929c5b549 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd498ba45361bcbc25d073eadd7bc25d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_510cd6f952ecdcfbf808ae27be515474 = $(`<div id="html_510cd6f952ecdcfbf808ae27be515474" style="width: 100.0%; height: 100.0%;">South Waterfront Walkway - Sinatra Dr & 1 St</div>`)[0];
+                popup_cd498ba45361bcbc25d073eadd7bc25d.setContent(html_510cd6f952ecdcfbf808ae27be515474);
+            
+        
+
+        marker_fc6d93ddcdd4374c967a198ec8f2a3ea.bindPopup(popup_cd498ba45361bcbc25d073eadd7bc25d)
+        ;
+
+        
+    
+    
+                marker_fc6d93ddcdd4374c967a198ec8f2a3ea.setIcon(icon_88c14b534163e96dd77c34e929c5b549);
+            
+    
+            var marker_3223779a2a412d939e8ecaf6f9c05e90 = L.marker(
+                [40.73367, -74.0625],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_425f40e2dd78c253d0e240a70dd51460 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d68099e5a12f65a8f0bcf2bd1aee1da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fcbd33b4485fdb71b89e51d06b077d0e = $(`<div id="html_fcbd33b4485fdb71b89e51d06b077d0e" style="width: 100.0%; height: 100.0%;">Journal Square</div>`)[0];
+                popup_0d68099e5a12f65a8f0bcf2bd1aee1da.setContent(html_fcbd33b4485fdb71b89e51d06b077d0e);
+            
+        
+
+        marker_3223779a2a412d939e8ecaf6f9c05e90.bindPopup(popup_0d68099e5a12f65a8f0bcf2bd1aee1da)
+        ;
+
+        
+    
+    
+                marker_3223779a2a412d939e8ecaf6f9c05e90.setIcon(icon_425f40e2dd78c253d0e240a70dd51460);
+            
+    
+            var marker_2f891edafcf92512df03bc886ccf122c = L.marker(
+                [40.74998490907138, -74.02715027332306],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_43846102dabb3274619b7e364b20508b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ec27f6bb4c042a8184504330bb19496 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7c52ed5c70ad6f22596c56355d696656 = $(`<div id="html_7c52ed5c70ad6f22596c56355d696656" style="width: 100.0%; height: 100.0%;">11 St & Washington St</div>`)[0];
+                popup_2ec27f6bb4c042a8184504330bb19496.setContent(html_7c52ed5c70ad6f22596c56355d696656);
+            
+        
+
+        marker_2f891edafcf92512df03bc886ccf122c.bindPopup(popup_2ec27f6bb4c042a8184504330bb19496)
+        ;
+
+        
+    
+    
+                marker_2f891edafcf92512df03bc886ccf122c.setIcon(icon_43846102dabb3274619b7e364b20508b);
+            
+    
+            var marker_a5284e41f82224343899c579671ad6ee = L.marker(
+                [40.73681, -74.0309],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_6e0b7599902e0c9b5c486c1d14a81007 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c7e1b9b0f19a8ea77e091a1e24e69a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e8c5479ccd98f7b2668474e2d0d31fa0 = $(`<div id="html_e8c5479ccd98f7b2668474e2d0d31fa0" style="width: 100.0%; height: 100.0%;">Newark St & Washington St</div>`)[0];
+                popup_7c7e1b9b0f19a8ea77e091a1e24e69a7.setContent(html_e8c5479ccd98f7b2668474e2d0d31fa0);
+            
+        
+
+        marker_a5284e41f82224343899c579671ad6ee.bindPopup(popup_7c7e1b9b0f19a8ea77e091a1e24e69a7)
+        ;
+
+        
+    
+    
+                marker_a5284e41f82224343899c579671ad6ee.setIcon(icon_6e0b7599902e0c9b5c486c1d14a81007);
+            
+    
+            var marker_640d679c9aa71861b1c70f2500ab49b6 = L.marker(
+                [40.71928220070702, -74.07126188278198],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_9d9987c44435db833fec588e37b86228 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1179143aa6c72cff77e0c57c9d27e7fa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96d7ed6287195789b5f08c9ef55f6506 = $(`<div id="html_96d7ed6287195789b5f08c9ef55f6506" style="width: 100.0%; height: 100.0%;">Astor Place</div>`)[0];
+                popup_1179143aa6c72cff77e0c57c9d27e7fa.setContent(html_96d7ed6287195789b5f08c9ef55f6506);
+            
+        
+
+        marker_640d679c9aa71861b1c70f2500ab49b6.bindPopup(popup_1179143aa6c72cff77e0c57c9d27e7fa)
+        ;
+
+        
+    
+    
+                marker_640d679c9aa71861b1c70f2500ab49b6.setIcon(icon_9d9987c44435db833fec588e37b86228);
+            
+    
+            var marker_6bd2b6a93a4f6a30531de26935370666 = L.marker(
+                [40.72755146730012, -74.07106071710587],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_5e0f06f24dff2454101da2a0532b224d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d7f24c1d9b46fa11fec42e2914a347f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc604a9494f82ba51765d4f8153f9b52 = $(`<div id="html_bc604a9494f82ba51765d4f8153f9b52" style="width: 100.0%; height: 100.0%;">Glenwood Ave</div>`)[0];
+                popup_d7f24c1d9b46fa11fec42e2914a347f2.setContent(html_bc604a9494f82ba51765d4f8153f9b52);
+            
+        
+
+        marker_6bd2b6a93a4f6a30531de26935370666.bindPopup(popup_d7f24c1d9b46fa11fec42e2914a347f2)
+        ;
+
+        
+    
+    
+                marker_6bd2b6a93a4f6a30531de26935370666.setIcon(icon_5e0f06f24dff2454101da2a0532b224d);
+            
+    
+            var marker_d82d8691577ade28833e10f00b0b2a13 = L.marker(
+                [40.7422579775645, -74.03511106967926],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_a29d154100b45c62a20e559fe85b4f3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08f1cfaab7d319a7204694cc069bbf26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3518a09697d1a238b91f1b15006c74f9 = $(`<div id="html_3518a09697d1a238b91f1b15006c74f9" style="width: 100.0%; height: 100.0%;">4 St & Grand St</div>`)[0];
+                popup_08f1cfaab7d319a7204694cc069bbf26.setContent(html_3518a09697d1a238b91f1b15006c74f9);
+            
+        
+
+        marker_d82d8691577ade28833e10f00b0b2a13.bindPopup(popup_08f1cfaab7d319a7204694cc069bbf26)
+        ;
+
+        
+    
+    
+                marker_d82d8691577ade28833e10f00b0b2a13.setIcon(icon_a29d154100b45c62a20e559fe85b4f3c);
+            
+    
+            var marker_946487ef9c5fbecc4db888267112642f = L.marker(
+                [40.71346382669195, -74.06285852193832],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_cdbdd73a124770b6a8c8bb4e531b3da2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9c5fd70128f8147f8ec379c898d00315 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d146f1ff53cc13f05fcba066b9ff0c52 = $(`<div id="html_d146f1ff53cc13f05fcba066b9ff0c52" style="width: 100.0%; height: 100.0%;">Lafayette Park</div>`)[0];
+                popup_9c5fd70128f8147f8ec379c898d00315.setContent(html_d146f1ff53cc13f05fcba066b9ff0c52);
+            
+        
+
+        marker_946487ef9c5fbecc4db888267112642f.bindPopup(popup_9c5fd70128f8147f8ec379c898d00315)
+        ;
+
+        
+    
+    
+                marker_946487ef9c5fbecc4db888267112642f.setIcon(icon_cdbdd73a124770b6a8c8bb4e531b3da2);
+            
+    
+            var marker_dd42b4362a075b3fcdf2abdd00a26529 = L.marker(
+                [40.711354, -74.062446],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_411f8559753950d638ab19949c439faf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb12ab32b3f58ba99827c95b106faf52 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_179c8bf313045bdf1d4ed061c90a1940 = $(`<div id="html_179c8bf313045bdf1d4ed061c90a1940" style="width: 100.0%; height: 100.0%;">Communipaw Ave & Pacific Ave</div>`)[0];
+                popup_eb12ab32b3f58ba99827c95b106faf52.setContent(html_179c8bf313045bdf1d4ed061c90a1940);
+            
+        
+
+        marker_dd42b4362a075b3fcdf2abdd00a26529.bindPopup(popup_eb12ab32b3f58ba99827c95b106faf52)
+        ;
+
+        
+    
+    
+                marker_dd42b4362a075b3fcdf2abdd00a26529.setIcon(icon_411f8559753950d638ab19949c439faf);
+            
+    
+            var marker_673afa6d1a51a3d441ebb0b79e061723 = L.marker(
+                [40.73520838045357, -74.04696375131607],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_9c9e4ef9ec3e4454646257c4147f797b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8157ccfd21181437710c673937097f9f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c41433a917e814b61ab3fe3e97e7e4a4 = $(`<div id="html_c41433a917e814b61ab3fe3e97e7e4a4" style="width: 100.0%; height: 100.0%;">Hoboken Ave at Monmouth St</div>`)[0];
+                popup_8157ccfd21181437710c673937097f9f.setContent(html_c41433a917e814b61ab3fe3e97e7e4a4);
+            
+        
+
+        marker_673afa6d1a51a3d441ebb0b79e061723.bindPopup(popup_8157ccfd21181437710c673937097f9f)
+        ;
+
+        
+    
+    
+                marker_673afa6d1a51a3d441ebb0b79e061723.setIcon(icon_9c9e4ef9ec3e4454646257c4147f797b);
+            
+    
+            var marker_de02a3ac467c0a019a4c23c1f33d33bc = L.marker(
+                [40.7241765, -74.0506564],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_b8669704c2ee5a98abbe83896e6d626e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_20c8c1dc53d3cce5cc3a4b6dcd2d54f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b45ac5d4aff5b2a581a3362c055923b = $(`<div id="html_6b45ac5d4aff5b2a581a3362c055923b" style="width: 100.0%; height: 100.0%;">Brunswick St</div>`)[0];
+                popup_20c8c1dc53d3cce5cc3a4b6dcd2d54f5.setContent(html_6b45ac5d4aff5b2a581a3362c055923b);
+            
+        
+
+        marker_de02a3ac467c0a019a4c23c1f33d33bc.bindPopup(popup_20c8c1dc53d3cce5cc3a4b6dcd2d54f5)
+        ;
+
+        
+    
+    
+                marker_de02a3ac467c0a019a4c23c1f33d33bc.setIcon(icon_b8669704c2ee5a98abbe83896e6d626e);
+            
+    
+            var marker_61812c33f0fd675e26831d371d6be3b9 = L.marker(
+                [40.7124188237569, -74.03852552175522],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_f25bbe699a274287e34422a588b1135c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e99b59ea7deb253b45a89ae68258ff71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eed0631f0f26f371bf418c3ccca09841 = $(`<div id="html_eed0631f0f26f371bf418c3ccca09841" style="width: 100.0%; height: 100.0%;">Morris Canal</div>`)[0];
+                popup_e99b59ea7deb253b45a89ae68258ff71.setContent(html_eed0631f0f26f371bf418c3ccca09841);
+            
+        
+
+        marker_61812c33f0fd675e26831d371d6be3b9.bindPopup(popup_e99b59ea7deb253b45a89ae68258ff71)
+        ;
+
+        
+    
+    
+                marker_61812c33f0fd675e26831d371d6be3b9.setIcon(icon_f25bbe699a274287e34422a588b1135c);
+            
+    
+            var marker_661a8e306414726fe9ee585ac7427ca3 = L.marker(
+                [40.721650724879986, -74.04288411140442],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_31aca797677266030a3bc8907741f07f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_823a55494a521786725b7dd551303feb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_23ae037f47b5fb0465270c38b82654b1 = $(`<div id="html_23ae037f47b5fb0465270c38b82654b1" style="width: 100.0%; height: 100.0%;">Manila & 1st</div>`)[0];
+                popup_823a55494a521786725b7dd551303feb.setContent(html_23ae037f47b5fb0465270c38b82654b1);
+            
+        
+
+        marker_661a8e306414726fe9ee585ac7427ca3.bindPopup(popup_823a55494a521786725b7dd551303feb)
+        ;
+
+        
+    
+    
+                marker_661a8e306414726fe9ee585ac7427ca3.setIcon(icon_31aca797677266030a3bc8907741f07f);
+            
+    
+            var marker_e008f7a0dd74cf3b4f95f57e6695d47c = L.marker(
+                [40.74542, -74.03332],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_d8c45a91318dc63d2978c8164c4fd233 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_142145e29207f3011bd385be3f58855d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34720f03b303581bbd8161dc452889ae = $(`<div id="html_34720f03b303581bbd8161dc452889ae" style="width: 100.0%; height: 100.0%;">Clinton St & 7 St</div>`)[0];
+                popup_142145e29207f3011bd385be3f58855d.setContent(html_34720f03b303581bbd8161dc452889ae);
+            
+        
+
+        marker_e008f7a0dd74cf3b4f95f57e6695d47c.bindPopup(popup_142145e29207f3011bd385be3f58855d)
+        ;
+
+        
+    
+    
+                marker_e008f7a0dd74cf3b4f95f57e6695d47c.setIcon(icon_d8c45a91318dc63d2978c8164c4fd233);
+            
+    
+            var marker_c9d2025f8f53b695a6310f6dec0011f4 = L.marker(
+                [40.7272235, -74.0337589],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_29d889f99cc00c122e2ae5cf7846bdf5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e39082b4576e53a7d28a4dd2a774929 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c47d3bfc294087c159b2bf9d485ea3ba = $(`<div id="html_c47d3bfc294087c159b2bf9d485ea3ba" style="width: 100.0%; height: 100.0%;">Newport PATH</div>`)[0];
+                popup_8e39082b4576e53a7d28a4dd2a774929.setContent(html_c47d3bfc294087c159b2bf9d485ea3ba);
+            
+        
+
+        marker_c9d2025f8f53b695a6310f6dec0011f4.bindPopup(popup_8e39082b4576e53a7d28a4dd2a774929)
+        ;
+
+        
+    
+    
+                marker_c9d2025f8f53b695a6310f6dec0011f4.setIcon(icon_29d889f99cc00c122e2ae5cf7846bdf5);
+            
+    
+            var marker_86d7c620cf364402a2e24b4112948226 = L.marker(
+                [40.7518674823282, -74.03037697076797],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_c36a394b8642c35a719c7be34f617bfd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95a702b5e340e39d9ce19bf8dc3f447b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c27e73f296b668341b812fc62b12f36 = $(`<div id="html_8c27e73f296b668341b812fc62b12f36" style="width: 100.0%; height: 100.0%;">Willow Ave & 12 St</div>`)[0];
+                popup_95a702b5e340e39d9ce19bf8dc3f447b.setContent(html_8c27e73f296b668341b812fc62b12f36);
+            
+        
+
+        marker_86d7c620cf364402a2e24b4112948226.bindPopup(popup_95a702b5e340e39d9ce19bf8dc3f447b)
+        ;
+
+        
+    
+    
+                marker_86d7c620cf364402a2e24b4112948226.setIcon(icon_c36a394b8642c35a719c7be34f617bfd);
+            
+    
+            var marker_0c519c93e1662ddae111ca3b4168680c = L.marker(
+                [40.7253399253558, -74.06762212514877],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_d9cca75b84bce47c9692044089f62e91 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4270c262fa574dd9936c7e907ee69017 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fda473195dcaaf58501938e2b81dda55 = $(`<div id="html_fda473195dcaaf58501938e2b81dda55" style="width: 100.0%; height: 100.0%;">McGinley Square</div>`)[0];
+                popup_4270c262fa574dd9936c7e907ee69017.setContent(html_fda473195dcaaf58501938e2b81dda55);
+            
+        
+
+        marker_0c519c93e1662ddae111ca3b4168680c.bindPopup(popup_4270c262fa574dd9936c7e907ee69017)
+        ;
+
+        
+    
+    
+                marker_0c519c93e1662ddae111ca3b4168680c.setIcon(icon_d9cca75b84bce47c9692044089f62e91);
+            
+    
+            var marker_ec2e5e27fd088929b7af76bee3d5d251 = L.marker(
+                [40.73743, -74.03571],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_073ff0a7e635eed6f8bd0b2f5ff01f62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6fe54a592b59b44b780eb8cd0cabc633 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10c95664dbe3c08d897102f7ff238e21 = $(`<div id="html_10c95664dbe3c08d897102f7ff238e21" style="width: 100.0%; height: 100.0%;">Clinton St & Newark St</div>`)[0];
+                popup_6fe54a592b59b44b780eb8cd0cabc633.setContent(html_10c95664dbe3c08d897102f7ff238e21);
+            
+        
+
+        marker_ec2e5e27fd088929b7af76bee3d5d251.bindPopup(popup_6fe54a592b59b44b780eb8cd0cabc633)
+        ;
+
+        
+    
+    
+                marker_ec2e5e27fd088929b7af76bee3d5d251.setIcon(icon_073ff0a7e635eed6f8bd0b2f5ff01f62);
+            
+    
+            var marker_04d9c5df0d8ce4f90ee20824c5fec752 = L.marker(
+                [40.7112423, -74.0557013],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_3bd09861b06ae8b9ac3c6fb8d20886a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b2b2adccfe60338f46d73b97b935d1a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f801cb15479f98763b3ed92c663050b = $(`<div id="html_0f801cb15479f98763b3ed92c663050b" style="width: 100.0%; height: 100.0%;">Liberty Light Rail</div>`)[0];
+                popup_b2b2adccfe60338f46d73b97b935d1a9.setContent(html_0f801cb15479f98763b3ed92c663050b);
+            
+        
+
+        marker_04d9c5df0d8ce4f90ee20824c5fec752.bindPopup(popup_b2b2adccfe60338f46d73b97b935d1a9)
+        ;
+
+        
+    
+    
+                marker_04d9c5df0d8ce4f90ee20824c5fec752.setIcon(icon_3bd09861b06ae8b9ac3c6fb8d20886a9);
+            
+    
+            var marker_c8383388b3a7234b564b110852bc3665 = L.marker(
+                [40.740802, -74.042521],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_4e745d620e18d3a29bf63ead8afb0d9d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_78e4e5a9265d4169b6e60921f00a47d2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_71b0ecea38dff679fa7003cf6f268f31 = $(`<div id="html_71b0ecea38dff679fa7003cf6f268f31" style="width: 100.0%; height: 100.0%;">Marshall St & 2 St</div>`)[0];
+                popup_78e4e5a9265d4169b6e60921f00a47d2.setContent(html_71b0ecea38dff679fa7003cf6f268f31);
+            
+        
+
+        marker_c8383388b3a7234b564b110852bc3665.bindPopup(popup_78e4e5a9265d4169b6e60921f00a47d2)
+        ;
+
+        
+    
+    
+                marker_c8383388b3a7234b564b110852bc3665.setIcon(icon_4e745d620e18d3a29bf63ead8afb0d9d);
+            
+    
+            var marker_fa88f3e4ee354f0959e63265f20d86ba = L.marker(
+                [40.71941, -74.04309],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_73e22e51c17743a48d266ca1b096216d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21ea544ff0fec7818c62f28845fa3531 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34aa8e3b0afe8b76a48cf561c4fda582 = $(`<div id="html_34aa8e3b0afe8b76a48cf561c4fda582" style="width: 100.0%; height: 100.0%;">Grove St PATH</div>`)[0];
+                popup_21ea544ff0fec7818c62f28845fa3531.setContent(html_34aa8e3b0afe8b76a48cf561c4fda582);
+            
+        
+
+        marker_fa88f3e4ee354f0959e63265f20d86ba.bindPopup(popup_21ea544ff0fec7818c62f28845fa3531)
+        ;
+
+        
+    
+    
+                marker_fa88f3e4ee354f0959e63265f20d86ba.setIcon(icon_73e22e51c17743a48d266ca1b096216d);
+            
+    
+            var marker_8b2525f712692b0f9464662192070482 = L.marker(
+                [40.74790720968899, -74.03841152787209],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_4052e653d93fd1f0f8cb5793c2d32efb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_146aa106119e20db7a5554d8caa0d3b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1357a4c86a08902df49d982f51e3fc3 = $(`<div id="html_d1357a4c86a08902df49d982f51e3fc3" style="width: 100.0%; height: 100.0%;">9 St HBLR - Jackson St & 8 St</div>`)[0];
+                popup_146aa106119e20db7a5554d8caa0d3b8.setContent(html_d1357a4c86a08902df49d982f51e3fc3);
+            
+        
+
+        marker_8b2525f712692b0f9464662192070482.bindPopup(popup_146aa106119e20db7a5554d8caa0d3b8)
+        ;
+
+        
+    
+    
+                marker_8b2525f712692b0f9464662192070482.setIcon(icon_4052e653d93fd1f0f8cb5793c2d32efb);
+            
+    
+            var marker_818428e138588e05baee9ecc3c4b6c37 = L.marker(
+                [40.7236589, -74.0641943],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_b841825d39cba7f4e298b379011550a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_efa99f8321bc6bd85163222acd9e0c83 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4be417c4c9142835da2776d1c506a035 = $(`<div id="html_4be417c4c9142835da2776d1c506a035" style="width: 100.0%; height: 100.0%;">Baldwin at Montgomery</div>`)[0];
+                popup_efa99f8321bc6bd85163222acd9e0c83.setContent(html_4be417c4c9142835da2776d1c506a035);
+            
+        
+
+        marker_818428e138588e05baee9ecc3c4b6c37.bindPopup(popup_efa99f8321bc6bd85163222acd9e0c83)
+        ;
+
+        
+    
+    
+                marker_818428e138588e05baee9ecc3c4b6c37.setIcon(icon_b841825d39cba7f4e298b379011550a3);
+            
+    
+            var marker_0c6b6ec6393f134dddc227aa679bbbb4 = L.marker(
+                [40.74313993965626, -74.04004096984863],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_5d878f31f20c9d3dd6448670ccca56c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ab9252f81437652630510a418561734 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af39520aab5605663605594bb5aebc7b = $(`<div id="html_af39520aab5605663605594bb5aebc7b" style="width: 100.0%; height: 100.0%;">Mama Johnson Field - 4 St & Jackson St</div>`)[0];
+                popup_0ab9252f81437652630510a418561734.setContent(html_af39520aab5605663605594bb5aebc7b);
+            
+        
+
+        marker_0c6b6ec6393f134dddc227aa679bbbb4.bindPopup(popup_0ab9252f81437652630510a418561734)
+        ;
+
+        
+    
+    
+                marker_0c6b6ec6393f134dddc227aa679bbbb4.setIcon(icon_5d878f31f20c9d3dd6448670ccca56c4);
+            
+    
+            var marker_8bb8e86b4e8042858d752c8e80f6bb29 = L.marker(
+                [40.73100888698729, -74.06443700194359],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_50ad592e2edda7da1eede3c1e393cbdb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ed9a2fba0354bef83f316b82139651b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9687fe8b08eea88bda68fe15e8a15c6 = $(`<div id="html_d9687fe8b08eea88bda68fe15e8a15c6" style="width: 100.0%; height: 100.0%;">Bergen Ave & Sip Ave</div>`)[0];
+                popup_4ed9a2fba0354bef83f316b82139651b.setContent(html_d9687fe8b08eea88bda68fe15e8a15c6);
+            
+        
+
+        marker_8bb8e86b4e8042858d752c8e80f6bb29.bindPopup(popup_4ed9a2fba0354bef83f316b82139651b)
+        ;
+
+        
+    
+    
+                marker_8bb8e86b4e8042858d752c8e80f6bb29.setIcon(icon_50ad592e2edda7da1eede3c1e393cbdb);
+            
+    
+            var marker_017afa2052c71608457694656c8ee888 = L.marker(
+                [40.71636596185077, -74.034343957901],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_bb3b953c3232f64263a86c1cd19d1a00 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67ab671a0f355937e8c3c84f846029e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_304b3ec2e3536d13e93a67c510c30c5f = $(`<div id="html_304b3ec2e3536d13e93a67c510c30c5f" style="width: 100.0%; height: 100.0%;">Exchange Pl</div>`)[0];
+                popup_67ab671a0f355937e8c3c84f846029e1.setContent(html_304b3ec2e3536d13e93a67c510c30c5f);
+            
+        
+
+        marker_017afa2052c71608457694656c8ee888.bindPopup(popup_67ab671a0f355937e8c3c84f846029e1)
+        ;
+
+        
+    
+    
+                marker_017afa2052c71608457694656c8ee888.setIcon(icon_bb3b953c3232f64263a86c1cd19d1a00);
+            
+    
+            var marker_7307c7020b3fd4474f7cfbe4ee85cfbf = L.marker(
+                [40.745983882915624, -74.02819901704788],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_9cd5aba7689140c2fec74ad4ebb670ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_668daac32cbf7d02466324d9ffe027c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_19b4afb769efbe2092b95d0f849c6ea3 = $(`<div id="html_19b4afb769efbe2092b95d0f849c6ea3" style="width: 100.0%; height: 100.0%;">8 St & Washington St</div>`)[0];
+                popup_668daac32cbf7d02466324d9ffe027c0.setContent(html_19b4afb769efbe2092b95d0f849c6ea3);
+            
+        
+
+        marker_7307c7020b3fd4474f7cfbe4ee85cfbf.bindPopup(popup_668daac32cbf7d02466324d9ffe027c0)
+        ;
+
+        
+    
+    
+                marker_7307c7020b3fd4474f7cfbe4ee85cfbf.setIcon(icon_9cd5aba7689140c2fec74ad4ebb670ce);
+            
+    
+            var marker_731ac09a0bf0c4dcaab04f56af7ad5b4 = L.marker(
+                [40.727595966, -74.044247311],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_2b74c35e5aebfaab2bfac622f4b88a04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b659c11bacbda4b2fe6ec3aa959129d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f2d955675f4c3bc49d96a0664432996 = $(`<div id="html_4f2d955675f4c3bc49d96a0664432996" style="width: 100.0%; height: 100.0%;">Hamilton Park</div>`)[0];
+                popup_b659c11bacbda4b2fe6ec3aa959129d7.setContent(html_4f2d955675f4c3bc49d96a0664432996);
+            
+        
+
+        marker_731ac09a0bf0c4dcaab04f56af7ad5b4.bindPopup(popup_b659c11bacbda4b2fe6ec3aa959129d7)
+        ;
+
+        
+    
+    
+                marker_731ac09a0bf0c4dcaab04f56af7ad5b4.setIcon(icon_2b74c35e5aebfaab2bfac622f4b88a04);
+            
+    
+            var marker_bd7011e16b1369a7a3dcaaeb58e4396f = L.marker(
+                [40.737711, -74.066921],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_5c52d123cadfa07a3b42bc9f2c1f1733 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_843313aa16eaff5aba149832b18d9d68 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a8675e8370babd49738032c11c4a663 = $(`<div id="html_1a8675e8370babd49738032c11c4a663" style="width: 100.0%; height: 100.0%;">Dey St</div>`)[0];
+                popup_843313aa16eaff5aba149832b18d9d68.setContent(html_1a8675e8370babd49738032c11c4a663);
+            
+        
+
+        marker_bd7011e16b1369a7a3dcaaeb58e4396f.bindPopup(popup_843313aa16eaff5aba149832b18d9d68)
+        ;
+
+        
+    
+    
+                marker_bd7011e16b1369a7a3dcaaeb58e4396f.setIcon(icon_5c52d123cadfa07a3b42bc9f2c1f1733);
+            
+    
+            var marker_35f458be14ed5c07626c2ea4ca80ac11 = L.marker(
+                [40.7192517, -74.034234],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_5c65581a9dad6bbd59f36b51339c1739 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b86fcbcdafefdbfa7e6a7df1a7d07b2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f23ba87e8793e8070ecfba595f6b88ec = $(`<div id="html_f23ba87e8793e8070ecfba595f6b88ec" style="width: 100.0%; height: 100.0%;">Harborside</div>`)[0];
+                popup_b86fcbcdafefdbfa7e6a7df1a7d07b2f.setContent(html_f23ba87e8793e8070ecfba595f6b88ec);
+            
+        
+
+        marker_35f458be14ed5c07626c2ea4ca80ac11.bindPopup(popup_b86fcbcdafefdbfa7e6a7df1a7d07b2f)
+        ;
+
+        
+    
+    
+                marker_35f458be14ed5c07626c2ea4ca80ac11.setIcon(icon_5c65581a9dad6bbd59f36b51339c1739);
+            
+    
+            var marker_1c4307c460df2bf9215dfc7391e0a685 = L.marker(
+                [40.721630142638354, -74.04996782541275],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_e721c78fb9b12de0bcc472b36255a195 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ecc0469e601290036357042018456846 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26492f52cad33d11d595f45e30e76467 = $(`<div id="html_26492f52cad33d11d595f45e30e76467" style="width: 100.0%; height: 100.0%;">Dixon Mills</div>`)[0];
+                popup_ecc0469e601290036357042018456846.setContent(html_26492f52cad33d11d595f45e30e76467);
+            
+        
+
+        marker_1c4307c460df2bf9215dfc7391e0a685.bindPopup(popup_ecc0469e601290036357042018456846)
+        ;
+
+        
+    
+    
+                marker_1c4307c460df2bf9215dfc7391e0a685.setIcon(icon_e721c78fb9b12de0bcc472b36255a195);
+            
+    
+            var marker_203e514e695bba52108a7f9072d08f6b = L.marker(
+                [40.7246050998869, -74.07840594649315],
+                {
+}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            var icon_fecc8376ae3570199cf9ac01f90d966e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6cfb3b65f9e63763a0bf47a4f56c8ba1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76aea9d8af2096f97a07867a4b74ba39 = $(`<div id="html_76aea9d8af2096f97a07867a4b74ba39" style="width: 100.0%; height: 100.0%;">Lincoln Park</div>`)[0];
+                popup_6cfb3b65f9e63763a0bf47a4f56c8ba1.setContent(html_76aea9d8af2096f97a07867a4b74ba39);
+            
+        
+
+        marker_203e514e695bba52108a7f9072d08f6b.bindPopup(popup_6cfb3b65f9e63763a0bf47a4f56c8ba1)
+        ;
+
+        
+    
+    
+                marker_203e514e695bba52108a7f9072d08f6b.setIcon(icon_fecc8376ae3570199cf9ac01f90d966e);
+            
+    
+            var poly_line_1db631535401d9723ca217b58eaffea2 = L.polyline(
+                [[40.73520838045357, -74.04696375131607], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#8b0000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#8b0000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 11.013333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_1db631535401d9723ca217b58eaffea2.bindTooltip(
+                `<div>
+                     Hoboken Ave at Monmouth St -> Hoboken Terminal - Hudson St & Hudson Pl (826 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_dc1774fadd2d0978c00d99662dead9b0 = L.polyline(
+                [[40.73100888698729, -74.06443700194359], [40.7253399253558, -74.06762212514877]],
+                {"bubblingMouseEvents": true, "color": "#9a0000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#9a0000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 10.44}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_dc1774fadd2d0978c00d99662dead9b0.bindTooltip(
+                `<div>
+                     Bergen Ave & Sip Ave -> McGinley Square (783 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_51d204a7eda644a53b0c63ba5acaa7b8 = L.polyline(
+                [[40.71941, -74.04309], [40.71458403535893, -74.04281705617905]],
+                {"bubblingMouseEvents": true, "color": "#af0000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#af0000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 9.666666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_51d204a7eda644a53b0c63ba5acaa7b8.bindTooltip(
+                `<div>
+                     Grove St PATH -> Marin Light Rail (725 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a1e9d08d1e4abb4a10381d4953665b73 = L.polyline(
+                [[40.71941, -74.04309], [40.7112423, -74.0557013]],
+                {"bubblingMouseEvents": true, "color": "#e30000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e30000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 7.706666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_a1e9d08d1e4abb4a10381d4953665b73.bindTooltip(
+                `<div>
+                     Grove St PATH -> Liberty Light Rail (578 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3ab8a282d30ca081ef461cbf6c9410a7 = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#eb0000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#eb0000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 7.413333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_3ab8a282d30ca081ef461cbf6c9410a7.bindTooltip(
+                `<div>
+                     11 St & Washington St -> River St & Newark St (556 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0fca2d3e8ff6ad32f38d364ed1388f4d = L.polyline(
+                [[40.7241765, -74.0506564], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#f20000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f20000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 7.16}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_0fca2d3e8ff6ad32f38d364ed1388f4d.bindTooltip(
+                `<div>
+                     Brunswick St -> Grove St PATH (537 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_71450e96cb5ef976f5f66e801134326c = L.polyline(
+                [[40.721630142638354, -74.04996782541275], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#f30000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f30000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 7.133333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_71450e96cb5ef976f5f66e801134326c.bindTooltip(
+                `<div>
+                     Dixon Mills -> Grove St PATH (535 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8e44a8ec3ca4786f6351e213775a6dc4 = L.polyline(
+                [[40.71941, -74.04309], [40.71539114317, -74.04969155788422]],
+                {"bubblingMouseEvents": true, "color": "#f50000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f50000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 7.04}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_8e44a8ec3ca4786f6351e213775a6dc4.bindTooltip(
+                `<div>
+                     Grove St PATH -> JC Medical Center (528 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cc680b93965c84ff89363d2d2856767c = L.polyline(
+                [[40.73593758446329, -74.03030455112457], [40.73755127245804, -74.04166370630264]],
+                {"bubblingMouseEvents": true, "color": "#fb0000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#fb0000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 6.8133333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_cc680b93965c84ff89363d2d2856767c.bindTooltip(
+                `<div>
+                     Hoboken Terminal - Hudson St & Hudson Pl -> Southwest Park - Jackson St & Observer Hwy (511 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_76555c42dbb2dfddbefe135e4f69e221 = L.polyline(
+                [[40.71941, -74.04309], [40.727595966, -74.044247311]],
+                {"bubblingMouseEvents": true, "color": "#fc0000ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#fc0000ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 6.76}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_76555c42dbb2dfddbefe135e4f69e221.bindTooltip(
+                `<div>
+                     Grove St PATH -> Hamilton Park (507 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_670443e552011f3c5a4ab71608bd93bc = L.polyline(
+                [[40.745983882915624, -74.02819901704788], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff0404ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff0404ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 6.506666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_670443e552011f3c5a4ab71608bd93bc.bindTooltip(
+                `<div>
+                     8 St & Washington St -> River St & Newark St (488 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5f3bcccdcc59e7c1429895acb1350272 = L.polyline(
+                [[40.727595966, -74.044247311], [40.721650724879986, -74.04288411140442]],
+                {"bubblingMouseEvents": true, "color": "#ff0606ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff0606ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 6.466666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_5f3bcccdcc59e7c1429895acb1350272.bindTooltip(
+                `<div>
+                     Hamilton Park -> Manila & 1st (485 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_52332454376a6a7926b796370937f4c0 = L.polyline(
+                [[40.73593758446329, -74.03030455112457], [40.73879, -74.0393]],
+                {"bubblingMouseEvents": true, "color": "#ff1212ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff1212ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 6.1066666666666665}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_52332454376a6a7926b796370937f4c0.bindTooltip(
+                `<div>
+                     Hoboken Terminal - Hudson St & Hudson Pl -> Madison St & 1 St (458 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e95b35f4fd65b8f3ca5c90ca7db78b04 = L.polyline(
+                [[40.73100888698729, -74.06443700194359], [40.7246050998869, -74.07840594649315]],
+                {"bubblingMouseEvents": true, "color": "#ff1b1bff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff1b1bff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.866666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_e95b35f4fd65b8f3ca5c90ca7db78b04.bindTooltip(
+                `<div>
+                     Bergen Ave & Sip Ave -> Lincoln Park (440 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2fb8315ac73a2685921c579b6d258146 = L.polyline(
+                [[40.73100888698729, -74.06443700194359], [40.72572613742557, -74.07195925712585]],
+                {"bubblingMouseEvents": true, "color": "#ff1c1cff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff1c1cff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.84}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_2fb8315ac73a2685921c579b6d258146.bindTooltip(
+                `<div>
+                     Bergen Ave & Sip Ave -> Fairmount Ave (438 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9cbf2ff13de145a994739b2d49a1491e = L.polyline(
+                [[40.711354, -74.062446], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#ff1d1dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff1d1dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.8133333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_9cbf2ff13de145a994739b2d49a1491e.bindTooltip(
+                `<div>
+                     Communipaw Ave & Pacific Ave -> Grove St PATH (436 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c7998985607c373d702224d33a0b600f = L.polyline(
+                [[40.722103786686034, -74.07145500183105], [40.73100888698729, -74.06443700194359]],
+                {"bubblingMouseEvents": true, "color": "#ff2626ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff2626ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.56}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c7998985607c373d702224d33a0b600f.bindTooltip(
+                `<div>
+                     Bergen Ave -> Bergen Ave & Sip Ave (417 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_689acfd6683c25772e71c7158f978264 = L.polyline(
+                [[40.74816121065146, -74.0324530005455], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff2d2dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff2d2dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.346666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_689acfd6683c25772e71c7158f978264.bindTooltip(
+                `<div>
+                     Columbus Park - Clinton St & 9 St -> River St & Newark St (401 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_53a6fb0bfdbfebab8419083c9a4e9052 = L.polyline(
+                [[40.71941, -74.04309], [40.71346382669195, -74.06285852193832]],
+                {"bubblingMouseEvents": true, "color": "#ff3737ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3737ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.066666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_53a6fb0bfdbfebab8419083c9a4e9052.bindTooltip(
+                `<div>
+                     Grove St PATH -> Lafayette Park (380 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6262c442167ff272a0a2793ccc8339ca = L.polyline(
+                [[40.71636596185077, -74.034343957901], [40.7124188237569, -74.03852552175522]],
+                {"bubblingMouseEvents": true, "color": "#ff3939ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3939ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.0}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_6262c442167ff272a0a2793ccc8339ca.bindTooltip(
+                `<div>
+                     Exchange Pl -> Morris Canal (375 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_51e87878e246d3168b2bdcf720bce5a7 = L.polyline(
+                [[40.737711, -74.066921], [40.73367, -74.0625]],
+                {"bubblingMouseEvents": true, "color": "#ff3a3aff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3a3aff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.986666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_51e87878e246d3168b2bdcf720bce5a7.bindTooltip(
+                `<div>
+                     Dey St -> Journal Square (374 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4139a20288f5825a85c35a6d22978f32 = L.polyline(
+                [[40.7236589, -74.0641943], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#ff3a3aff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3a3aff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.986666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_4139a20288f5825a85c35a6d22978f32.bindTooltip(
+                `<div>
+                     Baldwin at Montgomery -> Grove St PATH (374 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_75d29be344a96262a78e5f3ca1f1415a = L.polyline(
+                [[40.75060414236896, -74.02402013540268], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff3d3dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3d3dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.906666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_75d29be344a96262a78e5f3ca1f1415a.bindTooltip(
+                `<div>
+                     12 St & Sinatra Dr N -> River St & Newark St (368 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_75de0358a9e25192f967475945c06699 = L.polyline(
+                [[40.71941, -74.04309], [40.71848892, -74.047726625]],
+                {"bubblingMouseEvents": true, "color": "#ff4444ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff4444ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.693333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_75de0358a9e25192f967475945c06699.bindTooltip(
+                `<div>
+                     Grove St PATH -> Van Vorst Park (352 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1852ed79f80974f3d00fc28df80046f7 = L.polyline(
+                [[40.71941, -74.04309], [40.71942, -74.05099]],
+                {"bubblingMouseEvents": true, "color": "#ff4b4bff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff4b4bff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.493333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_1852ed79f80974f3d00fc28df80046f7.bindTooltip(
+                `<div>
+                     Grove St PATH -> Montgomery St (337 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_259d3611cc2835ab59fdab0f49c2de97 = L.polyline(
+                [[40.745983882915624, -74.02819901704788], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff4f4fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff4f4fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.4}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_259d3611cc2835ab59fdab0f49c2de97.bindTooltip(
+                `<div>
+                     8 St & Washington St -> River St & 1 St (330 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4c644912c2f334772ae5841faf2f3566 = L.polyline(
+                [[40.73879, -74.0393], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff5151ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5151ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.333333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_4c644912c2f334772ae5841faf2f3566.bindTooltip(
+                `<div>
+                     Madison St & 1 St -> River St & Newark St (325 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8cc97ef2feecfd211473088ab8c26c3b = L.polyline(
+                [[40.73672227316331, -74.02900660353771], [40.74313282710551, -74.02698867022991]],
+                {"bubblingMouseEvents": true, "color": "#ff5454ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5454ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.253333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_8cc97ef2feecfd211473088ab8c26c3b.bindTooltip(
+                `<div>
+                     River St & Newark St -> Stevens - River Ter & 6 St (319 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d79d671da0640e4e98934dea1b07ca82 = L.polyline(
+                [[40.713203, -74.058261], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#ff5555ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5555ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.226666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_d79d671da0640e4e98934dea1b07ca82.bindTooltip(
+                `<div>
+                     Dr. Lena Edwards Park -> Grove St PATH (317 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c5a2fb18f15ef1969c05448fb7c407ee = L.polyline(
+                [[40.721650724879986, -74.04288411140442], [40.72568548362901, -74.04879033565521]],
+                {"bubblingMouseEvents": true, "color": "#ff5656ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5656ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.2}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c5a2fb18f15ef1969c05448fb7c407ee.bindTooltip(
+                `<div>
+                     Manila & 1st -> Monmouth & 6th (315 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f52cf81a8a4a51d796bdb57cda5384fc = L.polyline(
+                [[40.71636596185077, -74.034343957901], [40.71458403535893, -74.04281705617905]],
+                {"bubblingMouseEvents": true, "color": "#ff5656ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5656ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.2}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_f52cf81a8a4a51d796bdb57cda5384fc.bindTooltip(
+                `<div>
+                     Exchange Pl -> Marin Light Rail (315 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a43fa7b20759fd659af38c6a8d837914 = L.polyline(
+                [[40.72601172964625, -74.05038893222809], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#ff5757ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5757ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.173333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_a43fa7b20759fd659af38c6a8d837914.bindTooltip(
+                `<div>
+                     Brunswick & 6th -> Grove St PATH (313 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6860dfe2aa4efa4760694000fb04e235 = L.polyline(
+                [[40.7422579775645, -74.03511106967926], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff5757ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5757ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.173333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_6860dfe2aa4efa4760694000fb04e235.bindTooltip(
+                `<div>
+                     4 St & Grand St -> River St & Newark St (313 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7a237a39dbe8c5fd44bf813996b330ae = L.polyline(
+                [[40.752960630464955, -74.02435272932053], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff5757ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5757ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.16}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_7a237a39dbe8c5fd44bf813996b330ae.bindTooltip(
+                `<div>
+                     14 St Ferry - 14 St & Shipyard Ln -> River St & Newark St (312 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ffccf716a5190489277645b125450dbd = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff5858ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5858ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.12}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_ffccf716a5190489277645b125450dbd.bindTooltip(
+                `<div>
+                     11 St & Washington St -> River St & 1 St (309 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4f3d7b2cc99c1e90dfb7fa049f0c17b5 = L.polyline(
+                [[40.71435836870427, -74.06661093235016], [40.71941, -74.04309]],
+                {"bubblingMouseEvents": true, "color": "#ff5959ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5959ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.1066666666666665}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_4f3d7b2cc99c1e90dfb7fa049f0c17b5.bindTooltip(
+                `<div>
+                     Communipaw & Berry Lane -> Grove St PATH (308 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3982c51ca3fa46401976c32bdd557c7a = L.polyline(
+                [[40.752960630464955, -74.02435272932053], [40.745983882915624, -74.02819901704788]],
+                {"bubblingMouseEvents": true, "color": "#ff5d5dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5d5dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.0}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_3982c51ca3fa46401976c32bdd557c7a.bindTooltip(
+                `<div>
+                     14 St Ferry - 14 St & Shipyard Ln -> 8 St & Washington St (300 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f6ed03d0d49abb9e81ed8e18a420b5da = L.polyline(
+                [[40.74542, -74.03332], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff5e5eff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff5e5eff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9466666666666668}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_f6ed03d0d49abb9e81ed8e18a420b5da.bindTooltip(
+                `<div>
+                     Clinton St & 7 St -> River St & Newark St (296 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c3322e118aeddefed80280fb498e0079 = L.polyline(
+                [[40.727595966, -74.044247311], [40.7272235, -74.0337589]],
+                {"bubblingMouseEvents": true, "color": "#ff6060ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6060ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9066666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c3322e118aeddefed80280fb498e0079.bindTooltip(
+                `<div>
+                     Hamilton Park -> Newport PATH (293 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a635090f8a30cc4d7a22bf82ab84d296 = L.polyline(
+                [[40.73593758446329, -74.03030455112457], [40.740802, -74.042521]],
+                {"bubblingMouseEvents": true, "color": "#ff6363ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6363ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.8133333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_a635090f8a30cc4d7a22bf82ab84d296.bindTooltip(
+                `<div>
+                     Hoboken Terminal - Hudson St & Hudson Pl -> Marshall St & 2 St (286 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c285d5195d433fc43ba73af5b1927ff9 = L.polyline(
+                [[40.75060414236896, -74.02402013540268], [40.73698221818716, -74.02778059244156]],
+                {"bubblingMouseEvents": true, "color": "#ff6565ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6565ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.7733333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c285d5195d433fc43ba73af5b1927ff9.bindTooltip(
+                `<div>
+                     12 St & Sinatra Dr N -> South Waterfront Walkway - Sinatra Dr & 1 St (283 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7e3090c976f66a6194391ba1530510ee = L.polyline(
+                [[40.740802, -74.042521], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff6767ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6767ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.6933333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_7e3090c976f66a6194391ba1530510ee.bindTooltip(
+                `<div>
+                     Marshall St & 2 St -> River St & Newark St (277 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1803b05ea23e9a17356be8247f8e902e = L.polyline(
+                [[40.7272235, -74.0337589], [40.7287448, -74.0321082]],
+                {"bubblingMouseEvents": true, "color": "#ff6868ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6868ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.68}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_1803b05ea23e9a17356be8247f8e902e.bindTooltip(
+                `<div>
+                     Newport PATH -> Newport Pkwy (276 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0dc8e32f50d6fe4b64cdd8613c3ee072 = L.polyline(
+                [[40.74790720968899, -74.03841152787209], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff6969ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6969ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.64}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_0dc8e32f50d6fe4b64cdd8613c3ee072.bindTooltip(
+                `<div>
+                     9 St HBLR - Jackson St & 8 St -> River St & Newark St (273 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ea3f88b1a74b8228f91733671f6b30d2 = L.polyline(
+                [[40.74816121065146, -74.0324530005455], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff6a6aff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6a6aff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.6266666666666665}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_ea3f88b1a74b8228f91733671f6b30d2.bindTooltip(
+                `<div>
+                     Columbus Park - Clinton St & 9 St -> River St & 1 St (272 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_91c970dd399ec280e5e44a5ad7ea156a = L.polyline(
+                [[40.71941, -74.04309], [40.72568548362901, -74.04879033565521]],
+                {"bubblingMouseEvents": true, "color": "#ff6a6aff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6a6aff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.6133333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_91c970dd399ec280e5e44a5ad7ea156a.bindTooltip(
+                `<div>
+                     Grove St PATH -> Monmouth & 6th (271 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_22543b3e3f2e439f81b4dbbb6dc5a2de = L.polyline(
+                [[40.7192517, -74.034234], [40.7272235, -74.0337589]],
+                {"bubblingMouseEvents": true, "color": "#ff6d6dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6d6dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.546666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_22543b3e3f2e439f81b4dbbb6dc5a2de.bindTooltip(
+                `<div>
+                     Harborside -> Newport PATH (266 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e2b2496d60d28e0bbb072a8ed27050fb = L.polyline(
+                [[40.752960630464955, -74.02435272932053], [40.73698221818716, -74.02778059244156]],
+                {"bubblingMouseEvents": true, "color": "#ff6f6fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6f6fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.48}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_e2b2496d60d28e0bbb072a8ed27050fb.bindTooltip(
+                `<div>
+                     14 St Ferry - 14 St & Shipyard Ln -> South Waterfront Walkway - Sinatra Dr & 1 St (261 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d30e233609b2a5401f7b52525b7934a1 = L.polyline(
+                [[40.7272235, -74.0337589], [40.7242941, -74.0354826]],
+                {"bubblingMouseEvents": true, "color": "#ff6f6fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6f6fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.466666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_d30e233609b2a5401f7b52525b7934a1.bindTooltip(
+                `<div>
+                     Newport PATH -> Washington St (260 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_24da9d0793c7f71faf8603f6d2a2de59 = L.polyline(
+                [[40.74641264837719, -74.03797701001167], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff6f6fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff6f6fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.466666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_24da9d0793c7f71faf8603f6d2a2de59.bindTooltip(
+                `<div>
+                     7 St & Monroe St -> River St & Newark St (260 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f656b130a195ed07bac38ea23bb77724 = L.polyline(
+                [[40.7408139, -74.0274062], [40.73698221818716, -74.02778059244156]],
+                {"bubblingMouseEvents": true, "color": "#ff7373ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7373ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.3733333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_f656b130a195ed07bac38ea23bb77724.bindTooltip(
+                `<div>
+                     4 St & River St -> South Waterfront Walkway - Sinatra Dr & 1 St (253 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a183edee80d35cc03fdf78963855a113 = L.polyline(
+                [[40.74542, -74.03332], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff7373ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7373ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.3733333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_a183edee80d35cc03fdf78963855a113.bindTooltip(
+                `<div>
+                     Clinton St & 7 St -> River St & 1 St (253 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_83c89c470d75fb94132df5d811964e82 = L.polyline(
+                [[40.71928220070702, -74.07126188278198], [40.73100888698729, -74.06443700194359]],
+                {"bubblingMouseEvents": true, "color": "#ff7676ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7676ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.2666666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_83c89c470d75fb94132df5d811964e82.bindTooltip(
+                `<div>
+                     Astor Place -> Bergen Ave & Sip Ave (245 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c52a00d50804ff0cbfc6a444efcd0db9 = L.polyline(
+                [[40.74265933273143, -74.03223305940628], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff7777ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7777ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.2533333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c52a00d50804ff0cbfc6a444efcd0db9.bindTooltip(
+                `<div>
+                     Church Sq Park - 5 St & Park Ave -> River St & Newark St (244 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ac245e41f45c22fe7618ff794f8e5e47 = L.polyline(
+                [[40.752960630464955, -74.02435272932053], [40.7408139, -74.0274062]],
+                {"bubblingMouseEvents": true, "color": "#ff7777ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7777ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.24}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_ac245e41f45c22fe7618ff794f8e5e47.bindTooltip(
+                `<div>
+                     14 St Ferry - 14 St & Shipyard Ln -> 4 St & River St (243 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_00a5c5d34127f381e95f1b5acf7d5ddf = L.polyline(
+                [[40.752960630464955, -74.02435272932053], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff7878ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7878ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.2266666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_00a5c5d34127f381e95f1b5acf7d5ddf.bindTooltip(
+                `<div>
+                     14 St Ferry - 14 St & Shipyard Ln -> River St & 1 St (242 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6385d97154de9278f5e9f271b963c5a7 = L.polyline(
+                [[40.73981372311843, -74.03690412640572], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff7878ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7878ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.2133333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_6385d97154de9278f5e9f271b963c5a7.bindTooltip(
+                `<div>
+                     Adams St & 2 St -> River St & Newark St (241 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1347cfb4259e89f5bbb5c53c10965e40 = L.polyline(
+                [[40.71636596185077, -74.034343957901], [40.7112423, -74.0557013]],
+                {"bubblingMouseEvents": true, "color": "#ff7878ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7878ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.2133333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_1347cfb4259e89f5bbb5c53c10965e40.bindTooltip(
+                `<div>
+                     Exchange Pl -> Liberty Light Rail (241 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_450c28d840fa326d2d69e901c05043c0 = L.polyline(
+                [[40.745983882915624, -74.02819901704788], [40.73698221818716, -74.02778059244156]],
+                {"bubblingMouseEvents": true, "color": "#ff7e7eff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7e7eff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.04}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_450c28d840fa326d2d69e901c05043c0.bindTooltip(
+                `<div>
+                     8 St & Washington St -> South Waterfront Walkway - Sinatra Dr & 1 St (228 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b67ca3490c63eec0bbe3a2d81ddff5f7 = L.polyline(
+                [[40.72601172964625, -74.05038893222809], [40.721650724879986, -74.04288411140442]],
+                {"bubblingMouseEvents": true, "color": "#ff7f7fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f7fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.026666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_b67ca3490c63eec0bbe3a2d81ddff5f7.bindTooltip(
+                `<div>
+                     Brunswick & 6th -> Manila & 1st (227 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_19dc0f4a3c29e1ab52a73e3645692012 = L.polyline(
+                [[40.74816121065146, -74.0324530005455], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#ff7f7fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f7fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.013333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_19dc0f4a3c29e1ab52a73e3645692012.bindTooltip(
+                `<div>
+                     Columbus Park - Clinton St & 9 St -> Hoboken Terminal - Hudson St & Hudson Pl (226 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fdb3c67a774b2e404a84a869e7ad63b0 = L.polyline(
+                [[40.73879, -74.0393], [40.73681, -74.0309]],
+                {"bubblingMouseEvents": true, "color": "#ff7f7fff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f7fff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.013333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_fdb3c67a774b2e404a84a869e7ad63b0.bindTooltip(
+                `<div>
+                     Madison St & 1 St -> Newark St & Washington St (226 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c344ede30e23872bbaf41927f07c428e = L.polyline(
+                [[40.74313993965626, -74.04004096984863], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff8080ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8080ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.0}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c344ede30e23872bbaf41927f07c428e.bindTooltip(
+                `<div>
+                     Mama Johnson Field - 4 St & Jackson St -> River St & Newark St (225 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ea28fafd7aef0a68294909c4c14e799d = L.polyline(
+                [[40.73743, -74.03571], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#ff8080ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8080ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.0}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_ea28fafd7aef0a68294909c4c14e799d.bindTooltip(
+                `<div>
+                     Clinton St & Newark St -> Hoboken Terminal - Hudson St & Hudson Pl (225 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2f4314200788ac5ab427c8eb92498e3d = L.polyline(
+                [[40.7236589, -74.0641943], [40.73100888698729, -74.06443700194359]],
+                {"bubblingMouseEvents": true, "color": "#ff8080ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8080ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.986666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_2f4314200788ac5ab427c8eb92498e3d.bindTooltip(
+                `<div>
+                     Baldwin at Montgomery -> Bergen Ave & Sip Ave (224 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_64be6e1accd33601d2b18b0376603cb9 = L.polyline(
+                [[40.7422579775645, -74.03511106967926], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff8282ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8282ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.933333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_64be6e1accd33601d2b18b0376603cb9.bindTooltip(
+                `<div>
+                     4 St & Grand St -> River St & 1 St (220 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9ae078fe98d05a90d32765f1d57c1888 = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.745983882915624, -74.02819901704788]],
+                {"bubblingMouseEvents": true, "color": "#ff8787ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8787ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.7866666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_9ae078fe98d05a90d32765f1d57c1888.bindTooltip(
+                `<div>
+                     11 St & Washington St -> 8 St & Washington St (209 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e5955d29c1f4f32dae0535a4ff44139a = L.polyline(
+                [[40.73672227316331, -74.02900660353771], [40.7518674823282, -74.03037697076797]],
+                {"bubblingMouseEvents": true, "color": "#ff8989ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8989ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.7466666666666666}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_e5955d29c1f4f32dae0535a4ff44139a.bindTooltip(
+                `<div>
+                     River St & Newark St -> Willow Ave & 12 St (206 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6be50e049111825dc614ac7271eccdc1 = L.polyline(
+                [[40.7443978330956, -74.03450086712837], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff8989ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8989ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.7333333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_6be50e049111825dc614ac7271eccdc1.bindTooltip(
+                `<div>
+                     6 St & Grand St -> River St & Newark St (205 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_07539c6b5a28b2a7ed0e56b931a90c98 = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.74265933273143, -74.03223305940628]],
+                {"bubblingMouseEvents": true, "color": "#ff8a8aff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8a8aff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.72}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_07539c6b5a28b2a7ed0e56b931a90c98.bindTooltip(
+                `<div>
+                     11 St & Washington St -> Church Sq Park - 5 St & Park Ave (204 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5e889fccb88cc3159301a6a0ed71f0d4 = L.polyline(
+                [[40.727595966, -74.044247311], [40.72333158646436, -74.04595255851744]],
+                {"bubblingMouseEvents": true, "color": "#ff8a8aff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8a8aff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.72}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_5e889fccb88cc3159301a6a0ed71f0d4.bindTooltip(
+                `<div>
+                     Hamilton Park -> Jersey & 3rd (204 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_74606f0898792fcf38e8c22235d37083 = L.polyline(
+                [[40.71941, -74.04309], [40.72528910781132, -74.04557168483734]],
+                {"bubblingMouseEvents": true, "color": "#ff8b8bff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8b8bff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.6666666666666665}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_74606f0898792fcf38e8c22235d37083.bindTooltip(
+                `<div>
+                     Grove St PATH -> Jersey & 6th St (200 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_98cdc43ffac71db14581d8dba2795a6d = L.polyline(
+                [[40.7272235, -74.0337589], [40.7211236, -74.03805095]],
+                {"bubblingMouseEvents": true, "color": "#ff8b8bff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8b8bff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.6666666666666665}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_98cdc43ffac71db14581d8dba2795a6d.bindTooltip(
+                `<div>
+                     Newport PATH -> Warren St (200 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2a4d55e30059abd24b5cb4aa0d5a407d = L.polyline(
+                [[40.73698221818716, -74.02778059244156], [40.74313282710551, -74.02698867022991]],
+                {"bubblingMouseEvents": true, "color": "#ff8d8dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8d8dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.6266666666666665}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_2a4d55e30059abd24b5cb4aa0d5a407d.bindTooltip(
+                `<div>
+                     South Waterfront Walkway - Sinatra Dr & 1 St -> Stevens - River Ter & 6 St (197 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7295962ee938a4139524ced56390234c = L.polyline(
+                [[40.74790720968899, -74.03841152787209], [40.74816121065146, -74.0324530005455]],
+                {"bubblingMouseEvents": true, "color": "#ff8d8dff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8d8dff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.6133333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_7295962ee938a4139524ced56390234c.bindTooltip(
+                `<div>
+                     9 St HBLR - Jackson St & 8 St -> Columbus Park - Clinton St & 9 St (196 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_45bfce4cc664ad40bcfbca30d1a0c61a = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#ff9090ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9090ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.533333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_45bfce4cc664ad40bcfbca30d1a0c61a.bindTooltip(
+                `<div>
+                     11 St & Washington St -> Hoboken Terminal - Hudson St & Hudson Pl (190 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4d37d8896067502d423caf6383d02a70 = L.polyline(
+                [[40.73520838045357, -74.04696375131607], [40.7272235, -74.0337589]],
+                {"bubblingMouseEvents": true, "color": "#ff9191ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9191ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.52}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_4d37d8896067502d423caf6383d02a70.bindTooltip(
+                `<div>
+                     Hoboken Ave at Monmouth St -> Newport PATH (189 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_473794e90a15cf0dd022f5936081e55b = L.polyline(
+                [[40.74265933273143, -74.03223305940628], [40.7518674823282, -74.03037697076797]],
+                {"bubblingMouseEvents": true, "color": "#ff9191ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9191ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.506666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_473794e90a15cf0dd022f5936081e55b.bindTooltip(
+                `<div>
+                     Church Sq Park - 5 St & Park Ave -> Willow Ave & 12 St (188 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a40b0b3960262fea7b016b1d84744fa3 = L.polyline(
+                [[40.74641264837719, -74.03797701001167], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#ff9393ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9393ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.466666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_a40b0b3960262fea7b016b1d84744fa3.bindTooltip(
+                `<div>
+                     7 St & Monroe St -> Hoboken Terminal - Hudson St & Hudson Pl (185 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c345ec7b9ad28279aef5c183706ae8f0 = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.73698221818716, -74.02778059244156]],
+                {"bubblingMouseEvents": true, "color": "#ff9393ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9393ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.453333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_c345ec7b9ad28279aef5c183706ae8f0.bindTooltip(
+                `<div>
+                     11 St & Washington St -> South Waterfront Walkway - Sinatra Dr & 1 St (184 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_39989fdacdec5fd15b6f34b3c070c8eb = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.73681, -74.0309]],
+                {"bubblingMouseEvents": true, "color": "#ff9393ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9393ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.453333333333333}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_39989fdacdec5fd15b6f34b3c070c8eb.bindTooltip(
+                `<div>
+                     11 St & Washington St -> Newark St & Washington St (184 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7b763fa5699cda7b95afd354e8b07893 = L.polyline(
+                [[40.73100888698729, -74.06443700194359], [40.72755146730012, -74.07106071710587]],
+                {"bubblingMouseEvents": true, "color": "#ff9393ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9393ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.44}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_7b763fa5699cda7b95afd354e8b07893.bindTooltip(
+                `<div>
+                     Bergen Ave & Sip Ave -> Glenwood Ave (183 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_11e99e3d60c9f384c767d2101be61124 = L.polyline(
+                [[40.745983882915624, -74.02819901704788], [40.74790720968899, -74.03841152787209]],
+                {"bubblingMouseEvents": true, "color": "#ff9393ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9393ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.44}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_11e99e3d60c9f384c767d2101be61124.bindTooltip(
+                `<div>
+                     8 St & Washington St -> 9 St HBLR - Jackson St & 8 St (183 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1dc61cefd2e5007ca943e39e2198adf9 = L.polyline(
+                [[40.73736, -74.03097], [40.740802, -74.042521]],
+                {"bubblingMouseEvents": true, "color": "#ff9494ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9494ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.4266666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_1dc61cefd2e5007ca943e39e2198adf9.bindTooltip(
+                `<div>
+                     City Hall - Washington St & 1 St -> Marshall St & 2 St (182 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_94b7b72f4f29030dbc1d73cccacd12c4 = L.polyline(
+                [[40.752960630464955, -74.02435272932053], [40.74816121065146, -74.0324530005455]],
+                {"bubblingMouseEvents": true, "color": "#ff9494ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9494ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.4266666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_94b7b72f4f29030dbc1d73cccacd12c4.bindTooltip(
+                `<div>
+                     14 St Ferry - 14 St & Shipyard Ln -> Columbus Park - Clinton St & 9 St (182 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7f261e198b295f928f38d0328c78e166 = L.polyline(
+                [[40.75060414236896, -74.02402013540268], [40.7408139, -74.0274062]],
+                {"bubblingMouseEvents": true, "color": "#ff9494ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9494ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.4266666666666667}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_7f261e198b295f928f38d0328c78e166.bindTooltip(
+                `<div>
+                     12 St & Sinatra Dr N -> 4 St & River St (182 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_76296abaaf00a5530cd1f94ac2a71270 = L.polyline(
+                [[40.74998490907138, -74.02715027332306], [40.73736, -74.03097]],
+                {"bubblingMouseEvents": true, "color": "#ff9494ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9494ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.4133333333333336}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_76296abaaf00a5530cd1f94ac2a71270.bindTooltip(
+                `<div>
+                     11 St & Washington St -> City Hall - Washington St & 1 St (181 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fe4f94288d3f16368202dbeb0259a779 = L.polyline(
+                [[40.75060414236896, -74.02402013540268], [40.73721535335381, -74.02886540972803]],
+                {"bubblingMouseEvents": true, "color": "#ff9494ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9494ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.4133333333333336}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_fe4f94288d3f16368202dbeb0259a779.bindTooltip(
+                `<div>
+                     12 St & Sinatra Dr N -> River St & 1 St (181 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6a7e33174e64ec58ea01d751b77dcb50 = L.polyline(
+                [[40.71636596185077, -74.034343957901], [40.71517767732029, -74.03768330812454]],
+                {"bubblingMouseEvents": true, "color": "#ff9595ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9595ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.4}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_6a7e33174e64ec58ea01d751b77dcb50.bindTooltip(
+                `<div>
+                     Exchange Pl -> Grand St (180 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_98ea3702b13d8178a23b143ecb51984b = L.polyline(
+                [[40.73367, -74.0625], [40.74590996631558, -74.0572714805603]],
+                {"bubblingMouseEvents": true, "color": "#ff9696ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9696ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.3733333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_98ea3702b13d8178a23b143ecb51984b.bindTooltip(
+                `<div>
+                     Journal Square -> Leonard Gordon Park (178 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_072900e1b61d81b6a0cbc24cf00232ab = L.polyline(
+                [[40.740802, -74.042521], [40.73681, -74.0309]],
+                {"bubblingMouseEvents": true, "color": "#ff9696ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9696ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.36}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_072900e1b61d81b6a0cbc24cf00232ab.bindTooltip(
+                `<div>
+                     Marshall St & 2 St -> Newark St & Washington St (177 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f3f774e3f6dd27ce2fd9c96448d813ab = L.polyline(
+                [[40.745983882915624, -74.02819901704788], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#ff9797ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9797ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.3333333333333335}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_f3f774e3f6dd27ce2fd9c96448d813ab.bindTooltip(
+                `<div>
+                     8 St & Washington St -> Hoboken Terminal - Hudson St & Hudson Pl (175 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_160b9f74fe20d04a9b6c9277fb46b2f6 = L.polyline(
+                [[40.71941, -74.04309], [40.7124188237569, -74.03852552175522]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.2933333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_160b9f74fe20d04a9b6c9277fb46b2f6.bindTooltip(
+                `<div>
+                     Grove St PATH -> Morris Canal (172 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3deb3d4bbbcdb8268e23d68fad8e5acc = L.polyline(
+                [[40.7408139, -74.0274062], [40.73672227316331, -74.02900660353771]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.2933333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_3deb3d4bbbcdb8268e23d68fad8e5acc.bindTooltip(
+                `<div>
+                     4 St & River St -> River St & Newark St (172 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3c83af65d430d904e6a7e3f2713a7050 = L.polyline(
+                [[40.73981372311843, -74.03690412640572], [40.73593758446329, -74.03030455112457]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.2933333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_3c83af65d430d904e6a7e3f2713a7050.bindTooltip(
+                `<div>
+                     Adams St & 2 St -> Hoboken Terminal - Hudson St & Hudson Pl (172 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4abdcb8148c05e6fa0052c36e96690cc = L.polyline(
+                [[40.73520838045357, -74.04696375131607], [40.73681, -74.0309]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.2933333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_4abdcb8148c05e6fa0052c36e96690cc.bindTooltip(
+                `<div>
+                     Hoboken Ave at Monmouth St -> Newark St & Washington St (172 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_180c6cb8c59f979795f1100669c9ccd4 = L.polyline(
+                [[40.73367, -74.0625], [40.742677141, -74.051788633]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.2933333333333334}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_180c6cb8c59f979795f1100669c9ccd4.bindTooltip(
+                `<div>
+                     Journal Square -> Pershing Field (172 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fec93bf81c52220f37eb54bca5c57520 = L.polyline(
+                [[40.73736, -74.03097], [40.74816121065146, -74.0324530005455]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.28}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_fec93bf81c52220f37eb54bca5c57520.bindTooltip(
+                `<div>
+                     City Hall - Washington St & 1 St -> Columbus Park - Clinton St & 9 St (171 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f011588abe4834cc92aba0e01807a287 = L.polyline(
+                [[40.74790720968899, -74.03841152787209], [40.74265933273143, -74.03223305940628]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.28}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_f011588abe4834cc92aba0e01807a287.bindTooltip(
+                `<div>
+                     9 St HBLR - Jackson St & 8 St -> Church Sq Park - 5 St & Park Ave (171 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d0eddf3a3ccbcb4fda70bfca0fa4cbc2 = L.polyline(
+                [[40.74265933273143, -74.03223305940628], [40.74816121065146, -74.0324530005455]],
+                {"bubblingMouseEvents": true, "color": "#ff9999ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff9999ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.28}
+            ).addTo(map_86aa13f1c4401ce72e0d8f26964e55ab);
+        
+    
+            poly_line_d0eddf3a3ccbcb4fda70bfca0fa4cbc2.bindTooltip(
+                `<div>
+                     Church Sq Park - 5 St & Park Ave -> Columbus Park - Clinton St & 9 St (171 przejazdów)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
