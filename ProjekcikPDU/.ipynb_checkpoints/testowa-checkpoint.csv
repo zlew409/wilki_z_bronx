@@ -1,0 +1,6 @@
+,tripduration,starttime,stoptime,start station id,start station name,start station latitude,start station longitude,end station id,end station name,end station latitude,end station longitude,bikeid,usertype,birth year,gender,temperature (°C),relative_humidity (%),wind_speed (km/h),precipitation (mm)
+0,132,2018-01-01 00:01:45.814,2018-01-01 00:03:58.4750,3186,Grove St PATH,40.71958611647166,-74.04311746358871,3211,Newark Ave,40.72152515,-74.046304543,29590,Subscriber,1964,Male,-12.8,51,16.8,0.0
+1,560,2018-01-01 01:27:17.272,2018-01-01 01:36:37.8410,3276,Marin Light Rail,40.71458403535893,-74.04281705617905,3269,Brunswick & 6th,40.72601172964625,-74.05038893222809,29613,Subscriber,1989,Female,-13.1,54,16.3,0.0
+2,294,2018-01-01 01:29:03.020,2018-01-01 01:33:57.8990,3195,Sip Ave,40.73074262530658,-74.06378388404846,3225,Baldwin at Montgomery,40.7236589,-74.0641943,31940,Subscriber,1994,Male,-13.1,54,16.3,0.0
+3,197,2018-01-01 01:59:31.746,2018-01-01 02:02:48.9960,3211,Newark Ave,40.72152515,-74.046304543,3278,Monmouth and 6th,40.72568548362901,-74.04879033565521,31949,Subscriber,1964,Male,-13.2,55,16.3,0.0
+4,932,2018-01-01 02:06:17.541,2018-01-01 02:21:50.0270,3183,Exchange Place,40.7162469,-74.0334588,3199,Newport Pkwy,40.7287448,-74.0321082,31929,Subscriber,1992,Male,-13.2,55,16.3,0.0

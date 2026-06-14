@@ -1,0 +1,101 @@
+month,day,start_station_name,end_station_name,liczba_tras,temperatura,opady,wiatr
+7,12,Liberty Light Rail,Liberty Light Rail,35,23.104166666666668,0.0,9.979166666666666
+7,20,Liberty Light Rail,Liberty Light Rail,31,21.95,0.0,10.645833333333334
+7,13,Liberty Light Rail,Liberty Light Rail,30,22.90833333333333,0.0,11.408333333333333
+4,23,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,27,9.320833333333333,0.0,9.970833333333333
+7,20,12 St & Sinatra Dr N,12 St & Sinatra Dr N,27,21.95,0.0,10.645833333333334
+7,19,Liberty Light Rail,Liberty Light Rail,25,22.1875,0.0,10.620833333333334
+7,20,14 St Ferry - 14 St & Shipyard Ln,14 St Ferry - 14 St & Shipyard Ln,25,21.95,0.0,10.645833333333334
+10,5,12 St & Sinatra Dr N,12 St & Sinatra Dr N,25,17.579166666666666,0.0,14.541666666666666
+10,24,8 St & Washington St,11 St & Washington St,25,9.216666666666667,0.0,21.804166666666664
+7,13,12 St & Sinatra Dr N,12 St & Sinatra Dr N,23,22.90833333333333,0.0,11.408333333333333
+10,24,11 St & Washington St,8 St & Washington St,23,9.216666666666667,0.0,21.804166666666664
+7,12,12 St & Sinatra Dr N,12 St & Sinatra Dr N,22,23.104166666666668,0.0,9.979166666666666
+7,18,McGinley Square,Bergen Ave & Sip Ave,22,24.22083333333333,0.0,14.616666666666667
+7,19,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,22,22.1875,0.0,10.620833333333334
+4,22,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,21,9.6875,0.0,10.708333333333334
+4,22,Hoboken Terminal - River St & Hudson Pl,Stevens - River Ter & 6 St,21,9.6875,0.0,10.708333333333334
+7,12,Newport PATH,Exchange Pl,21,23.104166666666668,0.0,9.979166666666666
+10,24,McGinley Square,Bergen Ave & Sip Ave,21,9.216666666666667,0.0,21.804166666666664
+10,31,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,21,11.237499999999999,0.0,11.895833333333334
+1,14,Hoboken Terminal - River St & Hudson Pl,8 St & Washington St,20,-7.366666666666667,0.0,18.133333333333333
+4,20,Liberty Light Rail,Liberty Light Rail,20,5.362500000000001,0.0,22.320833333333336
+4,21,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,20,8.266666666666667,0.0,13.854166666666666
+7,12,Exchange Pl,Newport PATH,20,23.104166666666668,0.0,9.979166666666666
+10,18,Hoboken Ave at Monmouth St,Hoboken Terminal - Hudson St & Hudson Pl,20,7.329166666666667,0.0,17.079166666666666
+10,25,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,20,6.7875000000000005,0.0,15.029166666666667
+4,23,12 St & Sinatra Dr N,12 St & Sinatra Dr N,19,9.320833333333333,0.0,9.970833333333333
+7,18,Bergen Ave & Sip Ave,McGinley Square,19,24.22083333333333,0.0,14.616666666666667
+10,14,Grove St PATH,Marin Light Rail,19,10.825000000000001,0.0,8.029166666666667
+10,26,Liberty Light Rail,Liberty Light Rail,19,6.645833333333333,0.0,7.841666666666666
+10,31,McGinley Square,Bergen Ave & Sip Ave,19,11.237499999999999,0.0,11.895833333333334
+1,27,12 St & Sinatra Dr N,8 St & Washington St,18,4.920833333333333,0.0,17.162499999999998
+1,27,8 St & Washington St,12 St & Sinatra Dr N,18,4.920833333333333,0.0,17.162499999999998
+4,1,Grove St PATH,Marin Light Rail,18,8.775,0.0,16.470833333333335
+4,18,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,18,6.329166666666667,0.0,17.779166666666665
+4,22,Grove St PATH,Marin Light Rail,18,9.6875,0.0,10.708333333333334
+7,1,Liberty Light Rail,Grove St PATH,18,27.583333333333332,0.0,8.200000000000001
+7,12,Washington St,Exchange Pl,18,23.104166666666668,0.0,9.979166666666666
+7,18,Grove St PATH,Marin Light Rail,18,24.22083333333333,0.0,14.616666666666667
+10,5,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,18,17.579166666666666,0.0,14.541666666666666
+10,5,South Waterfront Walkway - Sinatra Dr & 1 St,South Waterfront Walkway - Sinatra Dr & 1 St,18,17.579166666666666,0.0,14.541666666666666
+10,31,Bergen Ave & Sip Ave,McGinley Square,18,11.237499999999999,0.0,11.895833333333334
+10,31,Grove St PATH,Liberty Light Rail,18,11.237499999999999,0.0,11.895833333333334
+1,1,South Waterfront Walkway - Sinatra Dr & 1 St,South Waterfront Walkway - Sinatra Dr & 1 St,17,-10.975,0.0,16.079166666666666
+1,14,McGinley Square,Bergen Ave & Sip Ave,17,-7.366666666666667,0.0,18.133333333333333
+1,27,McGinley Square,Bergen Ave & Sip Ave,17,4.920833333333333,0.0,17.162499999999998
+4,22,Church Sq Park - 5 St & Park Ave,Hoboken Terminal - River St & Hudson Pl,17,9.6875,0.0,10.708333333333334
+7,2,Grove St PATH,Liberty Light Rail,17,26.675,0.0,9.604166666666666
+7,9,Grove St PATH,Marin Light Rail,17,22.666666666666668,0.0,11.595833333333333
+7,9,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,17,22.666666666666668,0.0,11.595833333333333
+7,13,South Waterfront Walkway - Sinatra Dr & 1 St,South Waterfront Walkway - Sinatra Dr & 1 St,17,22.90833333333333,0.0,11.408333333333333
+7,18,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,17,24.22083333333333,0.0,14.616666666666667
+7,19,Essex Light Rail,Grand St,17,22.1875,0.0,10.620833333333334
+7,19,Hoboken Ave at Monmouth St,Hoboken Terminal - Hudson St & Hudson Pl,17,22.1875,0.0,10.620833333333334
+7,29,Exchange Pl,Morris Canal,17,23.858333333333334,0.0,9.6625
+7,29,Hamilton Park,Grove St PATH,17,23.858333333333334,0.0,9.6625
+7,31,Grove St PATH,Marin Light Rail,17,22.770833333333332,0.0,9.533333333333333
+10,22,Brunswick St,Grove St PATH,17,7.033333333333334,0.0,12.85
+10,22,Dixon Mills,Grove St PATH,17,7.033333333333334,0.0,12.85
+10,31,Liberty Light Rail,Grove St PATH,17,11.237499999999999,0.0,11.895833333333334
+1,15,Liberty Light Rail,Grove St PATH,16,-5.375,0.0,15.4375
+1,27,Bergen Ave & Sip Ave,McGinley Square,16,4.920833333333333,0.0,17.162499999999998
+4,1,Morris Canal,Exchange Pl,16,8.775,0.0,16.470833333333335
+4,8,Hamilton Park,Grove St PATH,16,2.6625,0.0,18.304166666666667
+4,18,Marin Light Rail,Grove St PATH,16,6.329166666666667,0.0,17.779166666666665
+4,21,Grove St PATH,Liberty Light Rail,16,8.266666666666667,0.0,13.854166666666666
+4,22,Grove St PATH,Liberty Light Rail,16,9.6875,0.0,10.708333333333334
+7,7,Southwest Park - Jackson St & Observer Hwy,Hoboken Terminal - Hudson St & Hudson Pl,16,20.191666666666666,0.0,14.325000000000001
+7,8,Grove St PATH,Lafayette Park,16,20.891666666666666,0.0,7.766666666666667
+7,8,Grove St PATH,Marin Light Rail,16,20.891666666666666,0.0,7.766666666666667
+7,8,Liberty Light Rail,Grove St PATH,16,20.891666666666666,0.0,7.766666666666667
+7,9,Grove St PATH,JC Medical Center,16,22.666666666666668,0.0,11.595833333333333
+7,13,Hamilton Park,Hamilton Park,16,22.90833333333333,0.0,11.408333333333333
+7,18,Baldwin at Montgomery,Grove St PATH,16,24.22083333333333,0.0,14.616666666666667
+7,18,Liberty Light Rail,Liberty Light Rail,16,24.22083333333333,0.0,14.616666666666667
+7,18,Manila & 1st,Hamilton Park,16,24.22083333333333,0.0,14.616666666666667
+7,29,Grove St PATH,Marin Light Rail,16,23.858333333333334,0.0,9.6625
+7,29,Hoboken Terminal - Hudson St & Hudson Pl,Southwest Park - Jackson St & Observer Hwy,16,23.858333333333334,0.0,9.6625
+10,14,Bergen Ave & Sip Ave,McGinley Square,16,10.825000000000001,0.0,8.029166666666667
+10,14,Dixon Mills,Grove St PATH,16,10.825000000000001,0.0,8.029166666666667
+10,22,Hamilton Park,Manila & 1st,16,7.033333333333334,0.0,12.85
+10,22,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,16,7.033333333333334,0.0,12.85
+10,22,McGinley Square,Bergen Ave & Sip Ave,16,7.033333333333334,0.0,12.85
+10,24,Grove St PATH,Liberty Light Rail,16,9.216666666666667,0.0,21.804166666666664
+10,24,River St & Newark St,11 St & Washington St,16,9.216666666666667,0.0,21.804166666666664
+1,2,Hoboken Terminal - River St & Hudson Pl,8 St & Washington St,15,-7.8,0.0,17.841666666666665
+4,1,Hoboken Terminal - River St & Hudson Pl,8 St & Washington St,15,8.775,0.0,16.470833333333335
+4,1,Stevens - River Ter & 6 St,Hoboken Terminal - River St & Hudson Pl,15,8.775,0.0,16.470833333333335
+4,14,Bergen Ave & Sip Ave,McGinley Square,15,17.287499999999998,0.0,16.308333333333334
+4,14,Hamilton Park,Grove St PATH,15,17.287499999999998,0.0,16.308333333333334
+4,18,Grove St PATH,Marin Light Rail,15,6.329166666666667,0.0,17.779166666666665
+4,18,Liberty Light Rail,Liberty Light Rail,15,6.329166666666667,0.0,17.779166666666665
+4,18,McGinley Square,Bergen Ave & Sip Ave,15,6.329166666666667,0.0,17.779166666666665
+4,22,Liberty Light Rail,Grove St PATH,15,9.6875,0.0,10.708333333333334
+4,23,McGinley Square,Bergen Ave & Sip Ave,15,9.320833333333333,0.0,9.970833333333333
+7,1,Brunswick St,Grove St PATH,15,27.583333333333332,0.0,8.200000000000001
+7,1,Grove St PATH,Liberty Light Rail,15,27.583333333333332,0.0,8.200000000000001
+7,1,Lafayette Park,Grove St PATH,15,27.583333333333332,0.0,8.200000000000001
+7,7,Brunswick St,Grove St PATH,15,20.191666666666666,0.0,14.325000000000001
+7,7,Hoboken Terminal - Hudson St & Hudson Pl,Hoboken Ave at Monmouth St,15,20.191666666666666,0.0,14.325000000000001
+7,8,Grove St PATH,Liberty Light Rail,15,20.891666666666666,0.0,7.766666666666667
